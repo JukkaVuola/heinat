@@ -78,19 +78,20 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 > jonka saa lukittua ja josta eth-kaapeli kulkee ulos hallintaa varten.
 > Raspberry Pi ja relekortti on syytä koteloida jotenkin.
 
-### Linkkejä mahdollisiin hankintakohteisiin
+## Linkkejä mahdollisiin hankintakohteisiin
+| Komponentti | linkki |
+|---|---|
+| RPI 3B+ | [Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/-/en/Raspberry-Pi-Model-Board-Plus/dp/B0BNJPL4MW/) |
+| 32GB micro SD | [Raspberry 32 GB SD-kortti, Amazon.de](https://www.amazon.de/dp/B0CYSMZ8Z6) |
+| Releet | [Relekortti (2 relettä) Amazonissa](https://www.amazon.de/-/en/Yizhet-Channel-Relay-Module-Optocoupler/dp/B0BRKB6J2B) |
+| Magneettilukot | [Magneettilukkoja hyllyihin, Amazon.de](https://www.amazon.de/dp/B07KWMH16C) |
+| Piezo | [Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/-/en/Electronic-Warning-Permanent-Transmitter-Continuous/dp/B0FWXLP71N) |
+| Akku 12V 9Ah | [Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698)|
+| Ylläpitolaturi | [Ylläpitolaturi Motonetistä](https://www.motonet.fi/tuote/ctek-yllapitolaturi-mxs-38-12-v-38-a?product=45-5588) |
+| Auton USB sovitin 12V --> 5V  | [USB-sovitin Motonetistä](https://www.motonet.fi/tuote/four-vedenpitava-usb-pistorasia-12-24-v?product=65-01122) |
+| Sulakerasiat | [Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778) | 
 
-[Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/-/en/Raspberry-Pi-Model-Board-Plus/dp/B0BNJPL4MW/)
-[Raspberry 32 GB SD-kortti, Amazon.de(https://www.amazon.de/dp/B0CYSMZ8Z6)
-[Relekortti (2 relettä) Amazonissa](https://www.amazon.de/-/en/Yizhet-Channel-Relay-Module-Optocoupler/dp/B0BRKB6J2B)
-[Magneettilukkoja hyllyihin, Amazon.de](https://www.amazon.de/dp/B07KWMH16C)
-[Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/-/en/Electronic-Warning-Permanent-Transmitter-Continuous/dp/B0FWXLP71N)
-[Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698)
-[Ylläpitolaturi Motonetistä](https://www.motonet.fi/tuote/ctek-yllapitolaturi-mxs-38-12-v-38-a?product=45-5588)
-[USB-sovitin Motonetistä](https://www.motonet.fi/tuote/four-vedenpitava-usb-pistorasia-12-24-v?product=65-01122)
-[Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778)
-
-**HUOM.** Listaa ei ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
+**HUOM.** Listaa ei aktiivisesti ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
 
 ---
 
