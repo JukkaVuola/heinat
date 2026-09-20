@@ -2,7 +2,7 @@
 
 Raspberry Pi -pohjainen vuorokausiohjain hevosten heinäautomaattien sähkölukkojen ohjaukseen.
 
-Ohjaa jopa kahdeksaa sähkölukkoa itsenäisesti, jokaiselle oma ajastus. Selainpohjainen hallintaliittymä toimii tietokoneella, tabletilla ja puhelimella — myös suoraan ethernet-kaapelilla ilman WiFiä tai internet-yhteyttä.
+Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle oma ajastus. Selainpohjainen hallintaliittymä toimii tietokoneella, tabletilla ja puhelimella — myös suoraan ethernet-kaapelilla ilman WiFiä tai internet-yhteyttä.
 
 ---
 
