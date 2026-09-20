@@ -16,14 +16,16 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 - Yhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
 - Kevyt ja luotettava — pyörii Raspberry Pi 3B:llä
 
+Kuva hallinnasta:
 ![Web-UI](kuvat/web-ui-8hylly.png)
 
+---
 
 ## Oma toteutukseni
 
 ### Ohjauskaappi
 
-Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös raspberry pi 3B+ saa sähköt samasta akusta auton 12V --> 5V sovittimen kautta.
+Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V sovittimen kautta.
 Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
@@ -37,14 +39,14 @@ Toteutuksen etuja:
 
 - Ei vaadi luvallisia (220 vaihtovirta) sähkötöitä (paitsi ylläpitolaturille pitäisi löytyä yksi pistorasia)
 - Järjestelmä on täysin immuuni jopa muutaman päivän sähkökatkoille
-- kaapelointi on suhteellisen kevyttä heinäkaapeille. Tarviaan vain yksi -johto ja +johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
-- kaapeleiden vedon voi tehdä itse (12V heikkovirtatoteutus) ja kaappeja voi ketjuttaa helposti.
+- Kaapelointi on suhteellisen kevyttä heinäkaapeille. Tarviaan vain yksi -johto ja +johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
+- Kaapeleiden vedon voi tehdä itse (12V heikkovirtatoteutus) ja kaappeja voi ketjuttaa helposti.
 
-Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silloin akkua pitää ladata jotenkin silloin tällöin. 
+Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silti akkua pitää ladata jotenkin silloin tällöin. 
 
 ### Heinäautomaatit
 
-Automaattien runko on tehty tavallisesta havuvanerista (joka on edullista). Ovet ja suojaukset kattopellistä. Automaattien alle on hitsattu kaiteet, jotka suojaavat sekä automaattia että hevosta. Aluksi Kaiteita tehtiin tavallisesta raudasta ja ne maalattiin, mutta osa hevosista kaluaa rautaakin, jolloin kaide alkaa ruostumaan. Ruostuneiden tilalle on vähitellen tehty uusia kaiteita RST-putkesta.
+Automaattien runko on tehty tavallisesta havuvanerista (joka on edullista). Ovet ja suojaukset kattopellistä. Automaattien alle on hitsattu kaiteet, jotka suojaavat sekä automaattia että hevosta. Aluksi kaiteita tehtiin tavallisesta raudasta ja ne maalattiin, mutta osa hevosista kaluaa rautaakin, jolloin kaide alkaa ruostumaan. Ruostuneiden tilalle on vähitellen tehty uusia kaiteita RST-putkesta.
 
 ![Heinäkaappi kiinni](kuvat/heinakaappi-kiinni.jpg)
 
@@ -67,7 +69,7 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 | 12V sähkölukot | Yksi per hylly |
 | Kaapelia releiltä sähkölukoille | Yksi - johdin ja yksi + johdin per hyllytaso |
 | Sähkörasioita | Hyllyjen johdotuksen haaroituspisteet |
-| 12V akku + ylläpitolaturi | Esim. 7Ah lyijyakku ja automaattilaturi |
+| 12V akku + ylläpitolaturi | Esim. 9 Ah lyijyakku |
 | 12V → 5V USB-sovitin | Auton tyyppi toimii hyvin |
 | Ethernet-kaapeli | Tietokone suoraan Raspberry Pi:hin |
 
@@ -76,9 +78,22 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 > jonka saa lukittua ja josta eth-kaapeli kulkee ulos hallintaa varten.
 > Raspberry Pi ja relekortti on syytä koteloida jotenkin.
 
+### Linkkejä mahdollisiin hankintakohteisiin
 
+[Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/-/en/Raspberry-Pi-Model-Board-Plus/dp/B0BNJPL4MW/)
+[Raspberry 32 GB SD-kortti, Amazon.de(https://www.amazon.de/dp/B0CYSMZ8Z6)
+[Relekortti (2 relettä) Amazonissa](https://www.amazon.de/-/en/Yizhet-Channel-Relay-Module-Optocoupler/dp/B0BRKB6J2B)
+[Magneettilukkoja hyllyihin, Amazon.de](https://www.amazon.de/dp/B07KWMH16C)
+[Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/-/en/Electronic-Warning-Permanent-Transmitter-Continuous/dp/B0FWXLP71N)
+[Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698)
+[Ylläpitolaturi Motonetistä](https://www.motonet.fi/tuote/ctek-yllapitolaturi-mxs-38-12-v-38-a?product=45-5588)
+[USB-sovitin Motonetistä](https://www.motonet.fi/tuote/four-vedenpitava-usb-pistorasia-12-24-v?product=65-01122)
+[Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778)
+
+**HUOM.** Listaa ei ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
 
 ---
+
 
 ## Kytkennät
 
@@ -107,7 +122,7 @@ Raspberry Pi -projekteihin:
 - `GPIO HIGH` = rele lepotilassa → sähkölukko kiinni
 
 Relekortit ottavat ohjauksensa Raspberry Pi:n GPIO-pinnistä (3.3V/5V).
-Sähkölukot kytketään releen kautta 12V akusta.
+Sähkölukot kytketään releen kautta 12V akusta. Muista sulakesuojaus!
 
 ### Piezo-summeri
 
@@ -145,6 +160,8 @@ Piippausten määrää, kestoa ja releen vetoaikaa voi muuttaa web-hallintasivul
 ## Ohjelmiston asennus
 
 ### 1. Valmistele Raspberry Pi
+
+[Asennusopas RPI-sivustolla](https://www.raspberrypi.com/documentation/computers/getting-started.html)
 
 Asenna Raspberry Pi OS (Lite riittää, Desktop toimii myös).
 Varmista että SSH on käytössä tai kytke näppäimistö ja näyttö asennuksen ajaksi.
@@ -420,4 +437,4 @@ heina/
 ## Lisenssi
 
 MIT License — vapaa käyttää, muokata ja jakaa. Katso [LICENSE](LICENSE).
-#heinat
+
