@@ -26,7 +26,7 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 
 ### Ohjauskaappi
 
-Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V sovittimen kautta.
+Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V USB-sovittimen kautta.
 Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
