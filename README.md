@@ -16,6 +16,45 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 - Yhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
 - Kevyt ja luotettava — pyörii Raspberry Pi 3B:llä
 
+![Web-UI](kuvat/web-ui-8hylly.png)
+
+
+## Oma toteutukseni
+
+### Ohjauskaappi
+
+Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös raspberry pi 3B+ saa sähköt samasta akusta auton 12V --> 5V sovittimen kautta.
+Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
+
+Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
+![Laakekaappi-lukossa](kuvat/laakekaappi-kiinni.jpg)
+![Laakekaappi-avattu](kuvat/laakekaappi-avattu.jpg)
+
+Web-hallinnasta olen piilottanut toistaiseksi ylimääräiset hyllyt. Niihin voisi myöhemmin tehdä esim. ulkoautomaatit tarhoihin tms.
+![Ohjausnäkymä](kuvat/web-ui-2hylly.png)
+
+Toteutuksen etuja:
+
+- Ei vaadi luvallisia (220 vaihtovirta) sähkötöitä (paitsi ylläpitolaturille pitäisi löytyä yksi pistorasia)
+- Järjestelmä on täysin immuuni jopa muutaman päivän sähkökatkoille
+- kaapelointi on suhteellisen kevyttä heinäkaapeille. Tarviaan vain yksi -johto ja +johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
+- kaapeleiden vedon voi tehdä itse (12V heikkovirtatoteutus) ja kaappeja voi ketjuttaa helposti.
+
+Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silloin akkua pitää ladata jotenkin silloin tällöin. 
+
+### Heinäautomaatit
+
+Automaattien runko on tehty tavallisesta havuvanerista (joka on edullista). Ovet ja suojaukset kattopellistä. Automaattien alle on hitsattu kaiteet, jotka suojaavat sekä automaattia että hevosta. Aluksi Kaiteita tehtiin tavallisesta raudasta ja ne maalattiin, mutta osa hevosista kaluaa rautaakin, jolloin kaide alkaa ruostumaan. Ruostuneiden tilalle on vähitellen tehty uusia kaiteita RST-putkesta.
+
+![Heinäkaappi kiinni](kuvat/heinakaappi-kiinni.jpg)
+
+Heinää mahtuu kaappiin arviolta 2-3 kiloa per hylly.
+![Heinäkaappi auki ja ladattu](kuvat/heinakaappi-avattu-ladattu.jpg)
+
+Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöheinä jaellaan automaattisesti n. klo 23 ja aamuheinä n. klo 5. Kuuden tunnin lakisääteinen ruokintatiheys täyttyy. 
+![Sähkölukko](kuvat/lukko12V.jpg)
+
+
 ---
 
 ## Laitteistolista
@@ -26,13 +65,18 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 | Relekortti (2–8 relettä) | **Aktiivi-LOW** -tyyppi (GPIO LOW = rele vetää) |
 | Aktiivinen piezo-summeri | Ei passiivinen — tarkista ennen ostoa |
 | 12V sähkölukot | Yksi per hylly |
+| Kaapelia releiltä sähkölukoille | Yksi - johdin ja yksi + johdin per hyllytaso |
+| Sähkörasioita | Hyllyjen johdotuksen haaroituspisteet |
 | 12V akku + ylläpitolaturi | Esim. 7Ah lyijyakku ja automaattilaturi |
 | 12V → 5V USB-sovitin | Auton tyyppi toimii hyvin |
 | Ethernet-kaapeli | Tietokone suoraan Raspberry Pi:hin |
 
-> **Vinkki:** Koko ohjauselektroniikan voi pakata esim. vanhaan peltiseen kaappiin.
-> Akku, laturi, Raspberry Pi, relekortti ja sulakkeet siististi yhteen pakettiin,
+> **Vinkki:** Koko ohjauselektroniikan voi pakata esim. kaappiin tai koteloon suojaan.
+> Akku, laturi, Raspberry Pi, relekortti ja sulakkeet saa siististi yhteen pakettiin,
 > jonka saa lukittua ja josta eth-kaapeli kulkee ulos hallintaa varten.
+> Raspberry Pi ja relekortti on syytä koteloida jotenkin.
+
+
 
 ---
 
