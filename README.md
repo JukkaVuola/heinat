@@ -16,15 +16,13 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 - Yhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
 - Kevyt ja luotettava — pyörii Raspberry Pi 3B:llä
 
-
 ![Web-UI](kuvat/web-ui-8hylly.png)
+
 *Kuva ohjaushallinnasta, jossa kaikki 8 hyllyä ovat näkyvissä, mutta vain kaksi käytössä*
 
 ---
 
 ## Oma toteutukseni
-
----
 
 ### Ohjauskaappi
 
