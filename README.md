@@ -8,7 +8,7 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 
 ## Ominaisuudet
 
-- Tuki 1–8 hyllylle, jokaiselle oma ajastus
+- Tuki 1–8 hyllylle, jokaiselle hyllytasolle oma ajastus
 - Piezo-summeri varoittaa äänimerkeillä ennen hyllyn avautumista
 - Selainpohjainen hallinta (ei komentoriviä käytön aikana)
 - Tapahtumien kirjaus lokitiedostoon, luettavissa selaimella
