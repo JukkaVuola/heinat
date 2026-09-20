@@ -18,10 +18,13 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 
 
 ![Web-UI](kuvat/web-ui-8hylly.png)
-*Kuva ohjaushallinnasta, jossa kaikki 8 hyllyä näkyvissä*
+*Kuva ohjaushallinnasta, jossa kaikki 8 hyllyä ovat näkyvissä, mutta vain kaksi käytössä*
+
 ---
 
 ## Oma toteutukseni
+
+---
 
 ### Ohjauskaappi
 
@@ -29,7 +32,8 @@ Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele
 Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
-![Laakekaappi-lukossa](kuvat/laakekaappi-kiinni.jpg)
+![Lääkekaappi-lukossa](kuvat/laakekaappi-kiinni.jpg)
+*Ohjauskaapin voi lukita tarvittaessa*
 
 ![Laakekaappi-avattu](kuvat/laakekaappi-avattu.jpg)
 *Ohjauskaappi — akku, laturi, Raspberry Pi, releet ja piezo pakattuna peltiseen kaappiin*
