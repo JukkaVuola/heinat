@@ -1,0 +1,66 @@
+{
+  "shelves": {
+    "shelf1": {
+      "name": "Alahylly",
+      "pin": 2,
+      "time": "07:00",
+      "enabled": true,
+      "visible": true
+    },
+    "shelf2": {
+      "name": "Ylähylly",
+      "pin": 3,
+      "time": "19:00",
+      "enabled": true,
+      "visible": true
+    },
+    "shelf3": {
+      "name": "Hylly 3",
+      "pin": 4,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    },
+    "shelf4": {
+      "name": "Hylly 4",
+      "pin": 5,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    },
+    "shelf5": {
+      "name": "Hylly 5",
+      "pin": 6,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    },
+    "shelf6": {
+      "name": "Hylly 6",
+      "pin": 7,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    },
+    "shelf7": {
+      "name": "Hylly 7",
+      "pin": 8,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    },
+    "shelf8": {
+      "name": "Hylly 8",
+      "pin": 9,
+      "time": "12:00",
+      "enabled": false,
+      "visible": true
+    }
+  },
+  "buzzer_pin": 17,
+  "relay_active_seconds": 2,
+  "buzzer_lead_seconds": 10,
+  "beep_on_seconds": 1,
+  "beep_off_seconds": 1,
+  "beep_count": 5
+}

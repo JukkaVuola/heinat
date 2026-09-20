@@ -1,0 +1,13 @@
+[Unit]
+Description=Heinäautomaatti - releiden ja piezon vuorokausiohjaus
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/heina
+ExecStart=/home/pi/heina/.venv/bin/python3 /home/pi/heina/heina_automaatti.py
+User=pi
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
