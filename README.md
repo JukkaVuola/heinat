@@ -16,9 +16,9 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 - Yhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
 - Kevyt ja luotettava — pyörii Raspberry Pi 3B:llä
 
-Kuva hallinnasta:
-![Web-UI](kuvat/web-ui-8hylly.png)
 
+![Web-UI](kuvat/web-ui-8hylly.png)
+*Kuva ohjaushallinnasta, jossa kaikki 8 hyllyä näkyvissä*
 ---
 
 ## Oma toteutukseni
@@ -30,10 +30,13 @@ Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen säh
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
 ![Laakekaappi-lukossa](kuvat/laakekaappi-kiinni.jpg)
+
 ![Laakekaappi-avattu](kuvat/laakekaappi-avattu.jpg)
+*Ohjauskaappi — akku, laturi, Raspberry Pi, releet ja piezo pakattuna peltiseen kaappiin*
 
 Web-hallinnasta olen piilottanut toistaiseksi ylimääräiset hyllyt. Niihin voisi myöhemmin tehdä esim. ulkoautomaatit tarhoihin tms.
 ![Ohjausnäkymä](kuvat/web-ui-2hylly.png)
+*Käytössä oleva näkymä hallintaan*
 
 Toteutuksen etuja:
 
@@ -44,9 +47,9 @@ Toteutuksen etuja:
 
 Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silti akkua pitää ladata jotenkin silloin tällöin. 
 
-### Heinäautomaatit
+### Heinäautomaatit ja niiden valmistus
 
-Automaattien runko on tehty tavallisesta havuvanerista (joka on edullista). Ovet ja suojaukset kattopellistä. Automaattien alle on hitsattu kaiteet, jotka suojaavat sekä automaattia että hevosta. Aluksi kaiteita tehtiin tavallisesta raudasta ja ne maalattiin, mutta osa hevosista kaluaa rautaakin, jolloin kaide alkaa ruostumaan. Ruostuneiden tilalle on vähitellen tehty uusia kaiteita RST-putkesta.
+Automaattien runko on tehty tavallisesta havuvanerista (joka on edullista). Ovet ja suojaukset kattopellistä. Automaattien alle on hitsattu kaiteet, jotka suojaavat sekä automaattia että hevosta. 
 
 ![Heinäkaappi kiinni](kuvat/heinakaappi-kiinni.jpg)
 
@@ -55,7 +58,9 @@ Heinää mahtuu kaappiin arviolta 2-3 kiloa per hylly.
 
 Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöheinä jaellaan automaattisesti n. klo 23 ja aamuheinä n. klo 5. Kuuden tunnin lakisääteinen ruokintatiheys täyttyy. 
 ![Sähkölukko](kuvat/lukko12V.jpg)
+*12V sähkölukko jokaisen hyllyn luona*
 
+[Lue lisää kaapeista](kaapit.md)
 
 ---
 
@@ -94,7 +99,6 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 **HUOM.** Listaa ei aktiivisesti ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
 
 ---
-
 
 ## Kytkennät
 
@@ -425,12 +429,15 @@ Loki kertoo tarkan virheen.
 ## Tiedostorakenne
 
 ```
-heina/
-├── heina_automaatti.py      # Pääskripti
-├── config.json              # Asetukset (muokattavissa)
-├── heina-automaatti.service # systemd-palvelutiedosto
-├── tapahtumat.log           # Tapahtumaloki (luodaan automaattisesti)
-└── .venv/                   # Python-virtuaaliympäristö (luodaan asennuksessa)
+heinat/
+├── README.md					# Kuvaus ja ohjeistus
+├── kaapit.md                   # Kaappien rakennekuvaus
+├── heina_automaatti.py         # Pääskripti
+├── config.json                 # Asetukset (muokattavissa)
+├── heina-automaatti.service    # systemd-palvelutiedosto
+├── LICENSE                     # Lisenssi (MIT)
+├── kuvat/                      # Kuvakansio
+└── .venv/                      # Python-virtuaaliympäristö (luodaan asennuksessa)
 ```
 
 ---
