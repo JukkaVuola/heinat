@@ -26,7 +26,7 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 
 ### Ohjauskaappi
 
-Omassa toteutuksessani yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V USB-sovittimen kautta.
+Omassa toteutuksessani on käytössä kahden releen lauta: yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V USB-sovittimen kautta.
 Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
@@ -38,13 +38,13 @@ Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua
 
 Web-hallinnasta olen piilottanut toistaiseksi ylimääräiset hyllyt. Niihin voisi myöhemmin tehdä esim. ulkoautomaatit tarhoihin tms.
 ![Ohjausnäkymä](kuvat/web-ui-2hylly.png)
-*Käytössä oleva näkymä hallintaan*
+*Käytössä oleva näkymä hallintaan, kun ylimääräiset hyllyt on piilotettu*
 
 Toteutuksen etuja:
 
 - Ei vaadi luvallisia (220 vaihtovirta) sähkötöitä (paitsi ylläpitolaturille pitäisi löytyä yksi pistorasia)
 - Järjestelmä on täysin immuuni jopa muutaman päivän sähkökatkoille
-- Kaapelointi on suhteellisen kevyttä heinäkaapeille. Tarviaan vain yksi -johto ja +johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
+- Kaapelointi heinäkaapeillef on suhteellisen kevyttä. Tarviaan vain yksi - johto ja + johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
 - Kaapeleiden vedon voi tehdä itse (12V heikkovirtatoteutus) ja kaappeja voi ketjuttaa helposti.
 
 Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silti akkua pitää ladata jotenkin silloin tällöin. 
@@ -90,7 +90,7 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 |---|---|
 | RPI 3B+ | [Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/-/en/Raspberry-Pi-Model-Board-Plus/dp/B0BNJPL4MW/) |
 | 32GB micro SD | [Raspberry 32 GB SD-kortti, Amazon.de](https://www.amazon.de/dp/B0CYSMZ8Z6) |
-| Releet | [Relekortti (2 relettä) Amazonissa](https://www.amazon.de/-/en/Yizhet-Channel-Relay-Module-Optocoupler/dp/B0BRKB6J2B) |
+| Releet | [Relekortti (2-8) relettä), Amazon.de](https://www.amazon.de/s?k=raspberry+pi+relay+optocoupler) |
 | Magneettilukot | [Magneettilukkoja hyllyihin, Amazon.de](https://www.amazon.de/dp/B07KWMH16C) |
 | Piezo | [Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/-/en/Electronic-Warning-Permanent-Transmitter-Continuous/dp/B0FWXLP71N) |
 | Akku 12V 9Ah | [Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698)|
@@ -142,7 +142,7 @@ eikä toimi tässä projektissa.
 ## Toimintaperiaate
 
 Jokainen hylly avataan kerran vuorokaudessa määritettyyn kellonaikaan.
-Ennen avautumista piezo-summeri antaa äänimerkkirjan, joka varoittaa hevosia.
+Ennen avautumista piezo-summeri antaa äänimerkkisarjan, joka varoittaa hevosia.
 
 Oletusasetuksilla sekvenssi toimii näin:
 
@@ -425,6 +425,12 @@ Loki kertoo tarkan virheen.
 - Tarkista että `enabled: true` kyseisellä hyllyllä
 - Tarkista aikavyöhyke: `timedatectl`
 - Katso tapahtumaloki hallintasivulta
+- Tarkista, että RPI:n kello on ajassa: `date`
+  Aseta tarvittaessa kello oikeaan aikaan, esim: 
+```bash
+sudo date -s "15 sep 2026 11:27:00"
+```
+  (Kello saattaa olla väärässä, mikäli RPI ei pääse verkkoon päivittämään aikaa automaattisesti)
 
 ---
 
