@@ -7,7 +7,7 @@
 
 Kaapit on valmistettu havuvanerista. Itse käytin viimeiseen kaappiin 9mm havuvaneria kaikkeen levytavaraan. Se on suhteellisen edullista eikä homehdu helposti (kuten koivuvanerille saattaa käydä). Varmasti kalliimpi ja aikaa paremmin kestävä vaihtoehto olisi käyttää vesivaneria tai maatilavaneria, mutta havuvanerillakin pärjää hyvin.Kattokin vanerista (hieman upotettuna) 
 
-![Heinäkaappi](kuvat/heinakaappi.jpg)
+![Heinäkaappi](kuvat/heinakaappi.jpg)<br></br>
 *Heinäkaappi valmistettiin 9 mm vanerista ja ovi kattopellistä*
 
 ### Ovet
@@ -34,13 +34,13 @@ Suojakaiteet ovat välttämättömät. Ne suojaavat kaappeja kolhuilta ja painum
 Ne suojaavat myös kaapin alta syövää hevosta, jos hevonen esim. pelästyy ja nostaa nopeasti päätään. Vaarana on peltisen oven reuna, joka voi leikata haavan hevosen päähän. 
 Itse hitsasin suojakaiteet tavallisesta putkesta ja maalasin ne. Maalattu putki kuitenkin naarmuuntuu kuolaantuu helposti, jos hevonen naarmuttaa sitä hampaillaan. Sitten kaide alkaa ruostua. Näin kävi käytännössä. 
 
-![Suojakaiteet raudasta](kuvat/suojakaiteet-raudasta.png)
+![Suojakaiteet raudasta](kuvat/suojakaiteet-raudasta.png)<br></br>
 *Maalattuja raudasta tehtyjä suojakaiteita*
 
 Ensiapuna hitsasin uusia kaiteita ruostumattomasta putkesta. Amatöörihitsarille ruostumattoman pyöreän putken hitsaaminen on haastavaa.
 (Vaihtoehtoina ovat ruostumaton puikkohitsaus, MIG-hitsaus ruostumattomalla langalla ja Argon kaasulla tai TIG-hitsaus ruostumattomalla langalla ja Argon kaasulla. Itse käytin MIG-hitsausta). Ruostumattomat laipat tein ruostumattomista naulauslevyistä, mikä helpotti työtä hieman (reiät valmiina ja kokokin melko oikea)
 
-![Suojakaiteet ruostumattomasta putkesta](kuvat/suojakaiteet-rst.png)
+![Suojakaiteet ruostumattomasta putkesta](kuvat/suojakaiteet-rst.png)<br></br>
 *RST-putkesta tehtyjä suojakaiteita*
 
 Helpoin ratkaisu olisi hitsata kestävät suojakaiteet ruostumattomasta neliöputkesta, jota on helpompi leikata määrättyyn kulmaan ja hitsaaminenkin on yksinkertaisempaa. Suosittelen siis tällaista myös itselleni, jos vielä tarvetta tulee.
@@ -76,17 +76,18 @@ Itse käyttämiäni hankintapaikkoja:
 12V sähkötyöt eivät ole luvanvaraisia, joten nekin voi tehdä itse, jos osaa.
 Tässä muutama kuva vihjeeksi, miten johdotus on mahdollista tehdä.
 
-![12V kaapelit releiltä kaapeille](kuvat/kytkennat1.png)
+
+![12V kaapelit releiltä kaapeille](kuvat/kytkennat1.png)<br></br>
 *Periaatekuva, johdotus 12V akulta sulakkeiden kautta lukoille*
 --- 
-![12V kaapelit releiltä kaapeille](kuvat/kytkennat2.png)
+![12V kaapelit releiltä kaapeille](kuvat/kytkennat2.png)<br></br>
 *Yksi rele ohjaa yhtä +12V jännitettä yhdelle hyllytasolle, miinusjohto yhteinen kaikille hyllytasoa*
 ---
-![12V kaapelit releiltä kaapeille](kuvat/kytkennat3.png)
+![12V kaapelit releiltä kaapeille](kuvat/kytkennat3.png)<br></br>
 *Kaappeja voi ketjuttaa useita - johtojen määrä kaapelissa riippuu hyllytasojen määrästä*
 - periaatteessa hyllytasojen määrä + 1 kpl miinusjohtoja = tarvittava johdinten määrä kaapelin sisällä
 ---
-![12V kaapelit releiltä kaapeille](kuvat/heinakaappi-johdotus.png)
+![12V kaapelit releiltä kaapeille](kuvat/heinakaappi-johdotus.png)<br></br>
 *Tässä kuvassa näkyy tallin seinällä musta 12V kaapeli, kytkentärasia ja alasvienti kaapille*
 
 
