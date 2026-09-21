@@ -3,6 +3,7 @@
 # Kaappien valmistaminen
 
 ---
+
 ## Heinäkaapit
 
 Kulmakaapit on valmistettu havuvanerista. Jos takaseinien leveys on max. 60 cm, saa 120 cm leveästä vanerista helposti sopivia paloja. Itse käytin viimeiseen kaappiin 9 mm havuvaneria kaikkeen levytavaraan. Se on suhteellisen edullista eikä homehdu helposti (kuten koivuvanerille saattaa käydä). Varmasti kalliimpi ja aikaa paremmin kestävä vaihtoehto olisi käyttää vesivaneria tai maatilavaneria, mutta havuvanerillakin pärjää hyvin. Myös kaapin katon tein vanerista (hieman upotettuna). 
@@ -91,19 +92,27 @@ Tässä muutama kuva vihjeeksi, miten johdotus on mahdollista tehdä.
 ![12V kaapelit releiltä kaapeille](kuvat/kytkennat1.png)
 
 *Periaatekuva, johdotus 12V akulta sulakkeiden kautta lukoille*
+
 --- 
+
 ![12V kaapelit releiltä kaapeille](kuvat/kytkennat2.png)
 
 *Yksi rele ohjaa yhtä +12V jännitettä yhdelle hyllytasolle, miinusjohto yhteinen kaikille hyllytasoa*
+
 ---
+
 ![12V kaapelit releiltä kaapeille](kuvat/kytkennat3.png)
 
 *Kaappeja voi ketjuttaa useita - johtojen määrä kaapelissa riippuu hyllytasojen määrästä*
 - periaatteessa hyllytasojen määrä + 1 kpl miinusjohtoja = tarvittava johdinten määrä kaapelin sisällä
+
 ---
+
 ![12V kaapelit releiltä kaapeille](kuvat/heinakaappi-johdotus.png)
 
 *Tässä kuvassa näkyy tallin seinällä musta 12V kaapeli, kytkentärasia ja alasvienti kaapille*
+
+---
 
 
 [← Takaisin pääsivulle](README.md)
