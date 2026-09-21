@@ -37,7 +37,7 @@ Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua
 *Ohjauskaappi — akku, laturi, Raspberry Pi, releet ja piezo pakattuna peltiseen kaappiin*
 
 Web-hallinnasta olen piilottanut toistaiseksi ylimääräiset hyllyt. Niihin voisi myöhemmin tehdä esim. ulkoautomaatit tarhoihin tms.
-![Ohjausnäkymä](kuvat/web-ui-2hylly.png)
+![Ohjausnäkymä](kuvat/web-ui-2hylly.png)<br></br>
 *Käytössä oleva näkymä hallintaan, kun ylimääräiset hyllyt on piilotettu*
 
 Toteutuksen etuja:
