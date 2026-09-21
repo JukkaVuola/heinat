@@ -12,8 +12,8 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 - Piezo-summeri varoittaa äänimerkeillä ennen hyllyn avautumista
 - Selainpohjainen hallinta (ei komentoriviä käytön aikana)
 - Tapahtumien kirjaus lokitiedostoon, luettavissa selaimella
-- Toimii itsenäisesti ilman internet-yhteyttä
-- Yhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
+- Toimii itsenäisesti myös ilman internet-yhteyttä
+- Hallintayhteys ethernet-kaapelilla suoraan tietokoneesta tai WiFin kautta
 - Kevyt ja luotettava — pyörii Raspberry Pi 3B:llä
 
 ![Web-UI](kuvat/web-ui-8hylly.png)
@@ -44,7 +44,7 @@ Toteutuksen etuja:
 
 - Ei vaadi luvallisia (220 vaihtovirta) sähkötöitä (paitsi ylläpitolaturille pitäisi löytyä yksi pistorasia)
 - Järjestelmä on täysin immuuni jopa muutaman päivän sähkökatkoille
-- Kaapelointi heinäkaapeillef on suhteellisen kevyttä. Tarviaan vain yksi - johto ja + johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten 3-johdinta).
+- Kaapelointi heinäkaapeille on suhteellisen kevyttä. Tarviaan vain yksi - johto ja + johtoja yhtä monta kuin kaapissa on lukkoja (2-hyllyn tapauksessa riittää siten kaapeli, jossa on 3-johdinta. Kolmen hyllyn kaapeissa johtimia tarvittaisiin 4).
 - Kaapeleiden vedon voi tehdä itse (12V heikkovirtatoteutus) ja kaappeja voi ketjuttaa helposti.
 
 Periaatteessa toteutuksen voisi tehdä myös ilman sähköliittymää, mutta silti akkua pitää ladata jotenkin silloin tällöin. 

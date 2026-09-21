@@ -13,13 +13,13 @@ Kulmakaapit on valmistettu havuvanerista. Jos takaseinien leveys on max. 60 cm, 
 
 ### Ovet
 
-Ovet tein edullisesta kattopellistä. Pellin leikkaamiseen käytin pientä kulmahiomakonetta, mutta tietysti oikea pellin nakertaja olisi parempi vaihtoehto. Reunojen epätasaisuuden pitää hioa pois ja mielellään suojata maalilla. Oven salpapuolen taitoin kahden puunriman välissä kaksinkerroin. Puristimilla tukevasti pelti kahden riman väliin tarkasti ja kumivasaralla naputtelee taitteen. Toimi yllättävän hyvin ja helposti.
+Ovet tein edullisesta kattopellistä. Pellin leikkaamiseen käytin pientä kulmahiomakonetta, mutta tietysti oikea pellin nakertaja olisi parempi vaihtoehto. Reunojen epätasaisuudet pitää hioa pois ja mielellään suojata maalilla. Oven salpapuolen taitoin kahden puunriman välissä kaksinkerroin. Puristimilla tukevasti pelti kahden riman väliin tarkasti ja kumivasaralla naputtelee taitteen. Toimi yllättävän hyvin ja helposti.
 
-Alkuun laitoin ovien jäykisteeksi 3 cm leveää lattarautaa, mutta myöhemmin alumiinista lattaa (jota ei tarvitse erikseen pintakäsitellä). Kokoa 3 mm x 40 mm oven yläreunaan ja 3 mm x 25 mm alareunaan.
+Alkuun laitoin ovien jäykisteeksi 3 cm leveää lattarautaa, mutta myöhempiin toteutuksiin alumiinista lattaa (jota ei tarvitse erikseen pintakäsitellä). Kokoa 3 mm x 40 mm oven yläreunaan ja 3 mm x 25 mm alareunaan.
 
 ### Kaappien mitat
  
-Kaapit ovat kulmakaappeja
+Kaapit ovat 2 hyllyn kulmakaappeja
 - korkeus 100 cm
 - takaseinien pituus n. voisi olla 57 - 60 cm
 - takakulman tueksi 50 mm x 50 mm kolmiorimaa n. 50 cm korkea pätkä
@@ -37,7 +37,7 @@ Leikkasin suojapellit kattopellin ylijäämästä. Edullinen ja toimiva ratkaisu
 ## Suojakaiteet heinäkaapeille
 Suojakaiteet ovat välttämättömät. Ne suojaavat kaappeja kolhuilta ja painumiselta, jos hevoset sattuvat nojailemaan kaappeja vasten. 
 Ne suojaavat myös kaapin alta syövää hevosta, jos hevonen esim. pelästyy ja nostaa nopeasti päätään. Vaarana on peltisen oven reuna, joka voi leikata haavan hevosen päähän. 
-Itse hitsasin suojakaiteet tavallisesta putkesta ja maalasin ne. Maalattu putki kuitenkin naarmuuntuu kuolaantuu helposti, jos hevonen naarmuttaa sitä hampaillaan. Sitten kaide alkaa ruostua. Näin kävi käytännössä. 
+Itse hitsasin suojakaiteet tavallisesta putkesta ja maalasin ne. Maalattu putki kuitenkin naarmuuntuu ja kuolaantuu helposti, jos hevonen kaluaa sitä hampaillaan. Sitten kaide alkaa ruostua. Näin kävi käytännössä. 
 
 ![Suojakaiteet raudasta](kuvat/suojakaiteet-raudasta.png)
 
@@ -50,7 +50,7 @@ Ensiapuna hitsasin uusia kaiteita ruostumattomasta putkesta. Amatöörihitsarill
 
 *RST-putkesta tehtyjä suojakaiteita*
 
-Helpoin ratkaisu olisi hitsata kestävät suojakaiteet ruostumattomasta neliöputkesta, jota on helpompi leikata määrättyyn kulmaan ja hitsaaminenkin on yksinkertaisempaa. Suosittelen siis tällaista myös itselleni, jos vielä tarvetta tulee.
+Helpoin ratkaisu olisi hitsata kestävät suojakaiteet ruostumattomasta neliöputkesta, jota on helpompi leikata määrättyyn kulmaan ja suoran sauman hitsaaminenkin on yksinkertaisempaa. Suosittelen siis tällaista myös itselleni, jos vielä tarvetta tulee.
 
 ### Muita tarvikkeita
 - jokaiseen hyllyyn 2 saranaa
@@ -62,8 +62,8 @@ Helpoin ratkaisu olisi hitsata kestävät suojakaiteet ruostumattomasta neliöpu
 ## Työstö
 - vaneria sahailin käsisahalla ja pöytäsirkkelillä
 - kattopeltiä työstin useaa peltiä kerralla (päällekkäin) pienellä kulmahiomakoneella ja viimeistelin viilalla ja hiomapaperilla
-- rautamaalia pensselillä
-- kaappien sisustan käsittelin kaapista löytyneellä saunavahalla, ulko-osia maalailin
+- rautamaalia ja saunasuojaa pensseleillä
+- kaappien sisustan käsittelin nurkista löytyneellä saunavahalla, ulko-osia maalilla
 - ruuvinväännin ja poranterät olivat ahkerassa käytössä
 - oviin saranat kiinnitin alumiinisilla pop-niiteillä ja runkoon ruuveilla
 - jäykisteetkin kiinnitin pop-niiteillä 
