@@ -2,7 +2,7 @@
 
 Raspberry Pi -pohjainen vuorokausiohjain hevosten heinäautomaattien sähkölukkojen ohjaukseen.
 
-Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle oma ajastus. Selainpohjainen hallintaliittymä toimii tietokoneella, tabletilla ja puhelimella — myös suoraan ethernet-kaapelilla ilman WiFiä tai internet-yhteyttä.
+Voi ohjata jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle oma ajastus. Selainpohjainen hallintaliittymä toimii tietokoneella, tabletilla ja puhelimella — myös suoraan ethernet-kaapelilla ilman WiFiä tai internet-yhteyttä.
 
 ---
 
@@ -26,7 +26,7 @@ Ohjaa jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle om
 
 ### Ohjauskaappi
 
-Omassa toteutuksessani on käytössä kahden releen lauta: yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) / per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V USB-sovittimen kautta.
+Omassa toteutuksessani on käytössä kahden releen lauta: yksi rele ohjaa 8 heinäkaapin alahyllyjä ja toinen rele samojen kaappien ylähyllyjä. Automaateissa on 12V sähkölukko (Amazonista tilattu) per hylly. Sähköt lukoille tulevat 12V moottoripyörän akusta, jota lataa jatkuvasti pieni ylläpitolaturi (CTEC). Myös Raspberry Pi 3B+ saa sähköt samasta akusta auton 12V --> 5V USB-sovittimen kautta.
 Jokaisessa 12V lähdössä on ensin sopiva 12V sulake ja vasta sen jälkeen sähkö viedään lukoille tai raspberrylle.
 
 Koko laitteisto on kasattu vanhaan peltiseen lääkekaappiin, jonka saa lukittua.
@@ -119,6 +119,32 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 | Piezo-summeri | 17 |
 
 Kaikki pinnit ovat muutettavissa `config.json`-tiedostossa.
+Muuta pinnit vastaamaan käyttämäsi Relelaudan yhdistämistä Raspberry Pi laitteesi pinneihin.
+Pinnien sijainnin näet esim. täältä: [Raspberry Pi GPIO](https://pinout.xyz/)
+
+Relelaudat kytketään oletusarvoilla seuraavasti (8 releen lauta):
+| Rele | GPIO-numero | Fyysinen pinni |
+|---|---|---|
+| GND | Ground | 6 tai 9 tai 14 |
+| IN1 | 2 | 3 |
+| IN2 | 3 | 5 |
+| IN3 | 4 | 7 |
+| IN4 | 5 | 29 |
+| IN5 | 6 | 31 |
+| IN6 | 7 | 26 |
+| IN7 | 8 | 28 |
+| IN8 | 9 | 21 |
+| VCC | 5V | 2 tai 4 |
+
+Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
+**Yhdistä jumpperilla VCC ja JD-VCC**. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
+
+
+| Piezo | GPIO-pinni | Fyysinen pinni |
+|---|---|---|
+| + johto (punainen) | 17 | 11 |
+| - johto (musta) | Ground | 6 tai 9 tai 14 |
+
 
 ### Relelogiikka
 
@@ -130,6 +156,9 @@ Raspberry Pi -projekteihin:
 
 Relekortit ottavat ohjauksensa Raspberry Pi:n GPIO-pinnistä (3.3V/5V).
 Sähkölukot kytketään releen kautta 12V akusta. Muista sulakesuojaus!
+(Sähkölukoissa yleisesti punainen on + ja musta - )
+[Lue lisää kaappien johdotuksesta](kaapit.md)
+
 
 ### Piezo-summeri
 
@@ -188,11 +217,11 @@ sudo apt install python3 python3-pip python3-venv python3-rpi.gpio -y
 ### 3. Luo hakemisto ja lataa tiedostot
 
 ```bash
-mkdir -p /home/pi/heina
-cd /home/pi/heina
+mkdir -p /home/pi/heinat
+cd /home/pi/heinat
 ```
 
-Kopioi tai lataa repositoriosta seuraavat tiedostot hakemistoon `/home/pi/heina/`:
+Kopioi tai lataa repositoriosta seuraavat tiedostot hakemistoon `/home/pi/heinat/`:
 
 - `heina_automaatti.py`
 - `config.json`
@@ -201,7 +230,7 @@ Kopioi tai lataa repositoriosta seuraavat tiedostot hakemistoon `/home/pi/heina/
 ### 4. Luo virtuaaliympäristö ja asenna kirjastot
 
 ```bash
-cd /home/pi/heina
+cd /home/pi/heinat
 python3 -m venv .venv
 source .venv/bin/activate
 pip install flask waitress
@@ -210,10 +239,19 @@ deactivate
 
 ### 5. Muokkaa asetukset
 
+Anna pääskriptille `heina_automaatti.py` suoritusoikeudet:
+
+```bash
+chmod 744 /home/pi/heinat/heina_automaatti.py
+ls -l /home/pi/heinat/heina_automaatti.py
+```
+
+Rivin alussa pitäisi näkyä  **-rwxr--r--**
+
 Avaa `config.json` tekstieditorilla:
 
 ```bash
-nano /home/pi/heina/config.json
+nano /home/pi/heinat/config.json
 ```
 
 Tarkista ja muuta:
@@ -225,7 +263,7 @@ Tarkista ja muuta:
 ### 6. Asenna systemd-palvelu
 
 ```bash
-sudo cp /home/pi/heina/heina-automaatti.service /etc/systemd/system/
+sudo cp /home/pi/heinat/heina-automaatti.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable heina-automaatti.service
 sudo systemctl start heina-automaatti.service
@@ -257,8 +295,7 @@ Aseta oikeudet ja tarkista syntaksi:
 sudo chmod 440 /etc/sudoers.d/heina-automaatti
 sudo visudo -c
 ```
-
-Tulosteen pitäisi näyttää `heina-automaatti: parsed OK`.
+Jälkimmäinen komento tarkistaa, tulosteen pitäisi näyttää rivi `/etc/sudoers.d/heina-automaatti: parsed OK`.
 
 ---
 
@@ -286,7 +323,7 @@ static ip_address=192.168.50.1/24
 
 ```bash
 sudo apt install dnsmasq -y
-sudo nano /etc/dnsmasq.d/heina.conf
+sudo nano /etc/dnsmasq.d/heinat.conf
 ```
 
 Kirjoita:
@@ -318,10 +355,10 @@ http://192.168.50.1:8080/
 
 Lisää rivi:
 ```
-192.168.50.1    heina.local
+192.168.50.1    heinat.local
 ```
 
-Tämän jälkeen pääset osoitteella `http://heina.local:8080/`
+Tämän jälkeen pääset osoitteella `http://heinat.local:8080/`
 
 ### Vaihtoehto B: WiFi-verkko
 
@@ -332,7 +369,7 @@ Tarkista Raspberry Pi:n IP-osoite reitittimestä tai komennolla `ip addr`.
 
 ## Hallintasivun käyttö
 
-Avaa selaimella `http://192.168.50.1:8080/` (tai `http://heina.local:8080/`)
+Avaa selaimella `http://192.168.50.1:8080/` (tai `http://heinat.local:8080/`)
 
 ### Etusivu
 
