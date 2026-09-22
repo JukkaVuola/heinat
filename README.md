@@ -106,41 +106,51 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 
 ### GPIO-pinnit (BCM-numerointi)
 
-| Laite | GPIO-pinni |
-|---|---|
-| Hylly 1 (alahylly) | 2 |
-| Hylly 2 (ylähylly) | 3 |
-| Hylly 3 | 4 |
-| Hylly 4 | 5 |
-| Hylly 5 | 6 |
-| Hylly 6 | 7 |
-| Hylly 7 | 8 |
-| Hylly 8 | 9 |
-| Piezo-summeri | 17 |
 
 Kaikki pinnit ovat muutettavissa `config.json`-tiedostossa.
 Muuta pinnit vastaamaan käyttämäsi Relelaudan yhdistämistä Raspberry Pi laitteesi pinneihin.
 Pinnien sijainnin näet esim. täältä: [Raspberry Pi GPIO](https://pinout.xyz/)
 
-Relelaudat kytketään oletusarvoilla seuraavasti (8 releen lauta):
-| Rele | GPIO-numero | Fyysinen pinni |
+Relelaudat kytketään oletusarvoilla seuraavasti:
+**Kahdeksan releen lauta**
+
+| Rele | GPIO-BCM | Fyysinen pinni |
 |---|---|---|
 | GND | Ground | 6 tai 9 tai 14 |
-| IN1 | 2 | 3 |
-| IN2 | 3 | 5 |
-| IN3 | 4 | 7 |
-| IN4 | 5 | 29 |
-| IN5 | 6 | 31 |
-| IN6 | 7 | 26 |
-| IN7 | 8 | 28 |
-| IN8 | 9 | 21 |
+| IN1 | GPIO 2 | 3 |
+| IN2 | GPIO 3 | 5 |
+| IN3 | GPIO 4 | 7 |
+| IN4 | GPIO 5 | 29 |
+| IN5 | GPIO 6 | 31 |
+| IN6 | GPIO 7 | 26 |
+| IN7 | GPIO 8 | 28 |
+| IN8 | GPIO 9 | 21 |
 | VCC | 5V | 2 tai 4 |
 
 Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
-**Yhdistä jumpperilla VCC ja JD-VCC**. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
+*Yhdistä jumpperilla VCC ja JD-VCC*. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
+(Jos käytät pienempää relekorttia, jätä vain ylimääräiset IN-numerot huomiotta).
 
+ **Neljän releen lauta** seuraavasti:
+| Rele | GPIO-BCM| Fyysinen pinni |
+|---|---|---|
+| GND | Ground | 6 tai 9 tai 14 |
+| IN1 | GPIO 2 | 3 |
+| IN2 | GPIO 3 | 5 |
+| IN3 | GPIO 4 | 7 |
+| IN4 | GPIO 5 | 29 |
+| VCC | 5V | 2 tai 4 |
 
-| Piezo | GPIO-pinni | Fyysinen pinni |
+**Kahden releen** lauta  seuraavasti
+| Rele | GPIO-BCM | Fyysinen pinni |
+|---|---|---|
+| GND | Ground | 6 tai 9 tai 14 |
+| IN1 | GPIO 2 | 3 |
+| IN2 | GPIO 3 | 5 |
+| VCC | 5V | 2 tai 4 |
+
+**Aktiivisen piezon** kytkentä:
+| Piezo | GPIO-BMC | Fyysinen pinni |
 |---|---|---|
 | + johto (punainen) | 17 | 11 |
 | - johto (musta) | Ground | 6 tai 9 tai 14 |
