@@ -108,7 +108,7 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 
 
 Kaikki pinnit ovat muutettavissa `config.json`-tiedostossa.
-Muuta pinnit vastaamaan käyttämäsi Relelaudan yhdistämistä Raspberry Pi laitteesi pinneihin.
+Muuta pinnit vastaamaan käyttämäsi relelaudan yhdistämistä Raspberry Pi laitteesi pinneihin.
 Pinnien sijainnin näet esim. täältä: [Raspberry Pi GPIO](https://pinout.xyz/)
 
 Relelaudat kytketään oletusarvoilla seuraavasti:
@@ -158,13 +158,6 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN2 | GPIO 3 | 5 |
 | VCC | 5V | 2 tai 4 |
 
-**Aktiivisen piezon** kytkentä:
-| Piezo | GPIO-BMC | Fyysinen pinni |
-|---|---|---|
-| + johto (punainen) | 17 | 11 |
-| - johto (musta) | Ground | 6 tai 9 tai 14 |
-
-
 ### Relelogiikka
 
 Tämä koodi on suunniteltu **aktiivi-LOW** -relekorteille, joita myydään yleisesti
@@ -184,6 +177,16 @@ Sähkölukot kytketään releen kautta 12V akusta. Muista sulakesuojaus!
 Käytä **aktiivista** piezo-summeria. Aktiivisessa summerissa on sisäinen oskillaattori
 ja se piippaa pelkällä tasajännitteellä. Passiivinen summeri vaatii PWM-ohjauksen
 eikä toimi tässä projektissa.
+
+![**Piezo**](kuvat/active-piezo.png)
+
+
+**Aktiivisen piezon** kytkentä:
+
+| Piezo | GPIO-BMC | Fyysinen pinni |
+|---|---|---|
+| + johto (punainen) | 17 | 11 |
+| - johto (musta) | Ground | 6 tai 9 tai 14 |
 
 ---
 
