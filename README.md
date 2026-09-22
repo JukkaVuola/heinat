@@ -245,7 +245,7 @@ cd
 git clone https://github.com/JukkaVuola/heinat
 ```
 Lataaminen luo myös ao. hakemistot.
-Seuraavat komentoja ei silloin tarvita, siirry kohtaan **4.**
+Seuraavia komentoja ei silloin tarvita, siirry kohtaan **4.**
 
 (jatka tästä, jos git ei ole käytössä):
 
