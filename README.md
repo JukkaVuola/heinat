@@ -112,6 +112,9 @@ Muuta pinnit vastaamaan käyttämäsi Relelaudan yhdistämistä Raspberry Pi lai
 Pinnien sijainnin näet esim. täältä: [Raspberry Pi GPIO](https://pinout.xyz/)
 
 Relelaudat kytketään oletusarvoilla seuraavasti:
+
+![**Kahdeksan releen lauta**](kuvat/8-relay-module.png)
+
 **Kahdeksan releen lauta**
 
 | Rele | GPIO-BCM | Fyysinen pinni |
@@ -131,7 +134,10 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 *Yhdistä jumpperilla VCC ja JD-VCC*. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
 (Jos käytät pienempää relekorttia, jätä vain ylimääräiset IN-numerot huomiotta).
 
- **Neljän releen lauta** seuraavasti:
+![**Neljän releen lauta**](kuvat/4-relay-module.png)
+
+**Neljän releen lauta**
+
 | Rele | GPIO-BCM| Fyysinen pinni |
 |---|---|---|
 | GND | Ground | 6 tai 9 tai 14 |
@@ -141,7 +147,10 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN4 | GPIO 5 | 29 |
 | VCC | 5V | 2 tai 4 |
 
-**Kahden releen** lauta  seuraavasti
+![**Kahden releen lauta**](kuvat/2-relay-module.png)
+
+**kahden releen lauta**
+
 | Rele | GPIO-BCM | Fyysinen pinni |
 |---|---|---|
 | GND | Ground | 6 tai 9 tai 14 |
