@@ -88,13 +88,13 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 ## Linkkejä mahdollisiin hankintakohteisiin
 | Komponentti | linkki |
 |---|---|
-| RPI 3B+ | [Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/-/en/Raspberry-Pi-Model-Board-Plus/dp/B0BNJPL4MW/) |
-| 32GB micro SD | [Raspberry 32 GB SD-kortti, Amazon.de](https://www.amazon.de/dp/B0CYSMZ8Z6) |
+| RPI 3B+ | [Raspberry Pi 3B+, Amazon.de](https://www.amazon.de/s?k=raspberry+pi+3B) |
+| 32GB micro SD | [Raspberry 32 GB SD-kortti, Amazon.de](https://www.amazon.de/s?k=micro-sd+card+32) |
 | Releet | [Relekortti (2-8) relettä), Amazon.de](https://www.amazon.de/s?k=raspberry+pi+relay+optocoupler) |
 | Magneettilukot | [Magneettilukkoja hyllyihin, Amazon.de](https://www.amazon.de/dp/B07KWMH16C) |
-| Piezo | [Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/-/en/Electronic-Warning-Permanent-Transmitter-Continuous/dp/B0FWXLP71N) |
+| Piezo | [Aktiivi piezo summeri, Amazon.de](https://www.amazon.de/s?k=active+piezo+buzzer) |
 | Akku 12V 9Ah | [Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698)|
-| Ylläpitolaturi | [Ylläpitolaturi Motonetistä](https://www.motonet.fi/tuote/ctek-yllapitolaturi-mxs-38-12-v-38-a?product=45-5588) |
+| Ylläpitolaturi | [Ylläpitolaturi Motonetistä](https://www.motonet.fi/haku?q=yll%C3%A4pitolaturi%2012V) |
 | Auton USB sovitin 12V --> 5V  | [USB-sovitin Motonetistä](https://www.motonet.fi/tuote/four-vedenpitava-usb-pistorasia-12-24-v?product=65-01122) |
 | Sulakerasiat | [Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778) | 
 
@@ -238,6 +238,17 @@ sudo apt install python3 python3-pip python3-venv python3-rpi.gpio -y
 
 ### 3. Luo hakemisto ja lataa tiedostot
 
+**JOS käytössäsi on git** voit myös ladata koko hakemiston ohjeineen omalle koneellesi yhdellä komennolla:
+
+```bash
+cd
+git clone https://github.com/JukkaVuola/heinat
+```
+Lataaminen luo myös ao. hakemistot.
+Seuraavat komentoja ei silloin tarvita, siirry kohtaan **4.**
+
+(jatka tästä, jos git ei ole käytössä):
+
 ```bash
 mkdir -p /home/pi/heinat
 cd /home/pi/heinat
@@ -267,7 +278,6 @@ Anna pääskriptille `heina_automaatti.py` suoritusoikeudet:
 chmod 744 /home/pi/heinat/heina_automaatti.py
 ls -l /home/pi/heinat/heina_automaatti.py
 ```
-
 Rivin alussa pitäisi näkyä  **-rwxr--r--**
 
 Avaa `config.json` tekstieditorilla:
