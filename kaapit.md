@@ -24,7 +24,7 @@ Kaapit ovat 2 hyllyn kulmakaappeja
 - takaseinien pituus n. voisi olla 57 - 60 cm
 - takakulman tueksi 50 mm x 50 mm kolmiorimaa n. 50 cm korkea pätkä
 - kaapin ovireunat 50 mm x 50 mm neliörimaa ("kakkos kakkosta") ja siihen liimattuna em. kolmiorimaa, pituus 99 cm (koska kolmion muotoinen katto upotetaan hieman).
-- kaappien hyllyt suoraan vaneriin sitten, kun runko oli valmis käyttäen runkoa piirtomuottina
+- kaappien hyllyt piirsin suoraan vaneriin sitten, kun runko oli valmis. Käytin runkoa piirtomuottina.
 
 ![Kaappien mitoituskuva](kuvat/kaappi-mitoitus.png)
 
@@ -36,7 +36,7 @@ Leikkasin suojapellit kattopellin ylijäämästä. Edullinen ja toimiva ratkaisu
 
 ## Suojakaiteet heinäkaapeille
 Suojakaiteet ovat välttämättömät. Ne suojaavat kaappeja kolhuilta ja painumiselta, jos hevoset sattuvat nojailemaan kaappeja vasten. 
-Ne suojaavat myös kaapin alta syövää hevosta, jos hevonen esim. pelästyy ja nostaa nopeasti päätään. Vaarana on peltisen oven reuna, joka voi leikata haavan hevosen päähän. 
+Ne suojaavat myös kaapin alta syövää hevosta, jos hevonen esim. pelästyy ja nostaa nopeasti päätään. Vaarana on peltisen oven alareuna, joka saattaisi leikata haavan hevosen päähän. 
 Itse hitsasin suojakaiteet tavallisesta putkesta ja maalasin ne. Maalattu putki kuitenkin naarmuuntuu ja kuolaantuu helposti, jos hevonen kaluaa sitä hampaillaan. Sitten kaide alkaa ruostua. Näin kävi käytännössä. 
 
 ![Suojakaiteet raudasta](kuvat/suojakaiteet-raudasta.png)
@@ -80,6 +80,7 @@ Itse käyttämiäni hankintapaikkoja:
 | Alumiinilatta 25 mm | [Puuilon Warma-lattalista 25 mm] (https://www.puuilo.fi/warma-lattalista-alumiini-3x25mm-2m) |
 | Kattopelti oviin | [Hammeri.fi kattopeltiä] (https://www.hammer.fi/s/search/?keywords=kattopelti) |
 | Puuosat | [Stark-Suomi noutopihalta] (https://www.stark-suomi.fi/) |
+| RST neliöputkea kaiteisiin | (https://mustajarvi.fi/tuote/30x30x2-rst-nelioputki/) | 
 
 --- 
 
