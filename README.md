@@ -82,7 +82,8 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 
 > **Vinkki:** Koko ohjauselektroniikan voi pakata esim. kaappiin tai koteloon suojaan.
 > Akku, laturi, Raspberry Pi, relekortti ja sulakkeet saa siististi yhteen pakettiin,
-> jonka saa lukittua ja josta eth-kaapeli kulkee ulos hallintaa varten.
+> jonka saa lukittua ja josta eth-kaapeli kulkee ulos hallintaa varten. 
+> Itse kasasin kaiken vanhaan lääkekaappiin (joita saa mm. tori.fi myynnistä edullisesti).
 > Raspberry Pi ja relekortti on syytä koteloida jotenkin.
 
 ## Linkkejä mahdollisiin hankintakohteisiin
