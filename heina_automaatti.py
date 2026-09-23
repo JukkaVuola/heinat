@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Heinäautomaatti - releiden ja piezo-summerin vuorokausiohjaus.
+Heinäautomaatti - releiden ja piezo-summerin vuorokausiohjauksen pääskripti.
 
 - Ohjaa releitä (tuki 8 hyllylle)
 - Piippaa aktiivisella piezolla ennen releen aktivointia
 - Vuorokausiajastin (samat ajat joka päivä), aikavyöhyke = järjestelmän paikallinen aika
 - Web-käyttöliittymä (Flask) ajastusten muokkaukseen, manuaaliseen testaukseen ja lokin lukuun
-- Asetukset tallennetaan config.json-tiedostoon
+- Asetukset tallennetaan config.json-tiedostoon (ei tähän tiedostoon!)
 
 Releet: GPIO.LOW = rele vetää (aktiivi-LOW relemoduuli)
 Piezo: GPIO.HIGH = piippaa
