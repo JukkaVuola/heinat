@@ -7,7 +7,7 @@ WorkingDirectory=/home/pi/heinat
 ExecStart=/home/pi/heinat/.venv/bin/python3 /home/pi/heinat/heina_automaatti.py
 User=pi
 Restart=on-failure
-RestartSec=5
+RestartSec=5 
 
 [Install]
 WantedBy=multi-user.target
