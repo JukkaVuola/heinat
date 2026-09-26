@@ -100,7 +100,7 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 | Virtakaapeli edelliseen RPI 3B+ varten | [ MicroUSB-kaapeli](https://www.motonet.fi/tuote/cloudberry-usb-a-microusb-datakaapeli-12-m-musta?product=95-01084) |
 | Sulakerasiat | [Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778) | 
 | Laattasulake 12V 5A | [Laattasulake 12V 5A]( https://www.motonet.fi/tuote/laattasulake-5a-beige-5kpl?product=48-1605) |
-| RPI:n kotelon rakennat vaikka legoista | [Lego cases in youtube] ( https://www.youtube.com/results?search_query=raspberry+pi+lego+case) |
+| RPI:n kotelon rakennat vaikka legoista | [Lego cases in youtube]( https://www.youtube.com/results?search_query=raspberry+pi+lego+case) |
 
 **HUOM.** Listaa ei aktiivisesti ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
 
