@@ -97,10 +97,11 @@ Kaapeissa on sähkölukko / hylly, jotka päästävät heinät putoamaan. Yöhei
 | Akku 12V 9Ah | [Akku Motonetistä](https://www.motonet.fi/tuote/fulbat-agm-12-v-9-ah?product=90-00698) |
 | Ylläpitolaturi | [Ylläpitolaturi Motonetistä](https://www.motonet.fi/haku?q=yll%C3%A4pitolaturi%2012V) |
 | Auton USB sovitin 12V --> 5V  | [USB-sovitin Motonetistä](https://www.motonet.fi/tuote/four-vedenpitava-usb-pistorasia-12-24-v?product=65-01122) |
-| Virtakaapeli edelliseen RPI 3B+ varten | [ MicroUSB-kaapeli] (https://www.motonet.fi/tuote/cloudberry-usb-a-microusb-datakaapeli-12-m-musta?product=95-01084) |
+| Virtakaapeli edelliseen RPI 3B+ varten | [ MicroUSB-kaapeli](https://www.motonet.fi/tuote/cloudberry-usb-a-microusb-datakaapeli-12-m-musta?product=95-01084) |
 | Sulakerasiat | [Sulakerasioita](https://www.motonet.fi/tuote/laattasulakerasia-gm-maxi-roiskevesisuojattu?product=48-1778) | 
-| Laattasulake 12V 5A | [Laattasulake 12V 5A] ( https://www.motonet.fi/tuote/laattasulake-5a-beige-5kpl?product=48-1605 )|
-| RPI:n kotelon rakennat vaikka legoista | [Lego cases in youtube] ( https://www.youtube.com/results?search_query=raspberry+pi+lego+case )|
+| Laattasulake 12V 5A | [Laattasulake 12V 5A]( https://www.motonet.fi/tuote/laattasulake-5a-beige-5kpl?product=48-1605) |
+| RPI:n kotelon rakennat vaikka legoista | [Lego cases in youtube] ( https://www.youtube.com/results?search_query=raspberry+pi+lego+case) |
+
 **HUOM.** Listaa ei aktiivisesti ylläpidetä eikä se ole täydellinen kaikkia hankitatarpeita ajatellen...
 
 ---
