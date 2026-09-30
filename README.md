@@ -342,7 +342,9 @@ Jälkimmäinen komento tarkistaa, tulosteen pitäisi näyttää rivi `/etc/sudoe
 Tämä tapa ei vaadi WiFiä, tukiasemia eikä internet-yhteyttä.
 Toimii aina, myös tallissa ilman verkkoinfrastruktuuria.
 
-**Aseta Raspberry Pi:lle kiinteä IP-osoite:**
+** Aseta Raspberry Pi:lle kiinteä IP-osoite: **
+
+*Tapa 1.*
 
 ```bash
 sudo nano /etc/dhcpcd.conf
@@ -353,6 +355,21 @@ Lisää tiedoston loppuun:
 ```
 interface eth0
 static ip_address=192.168.50.1/24
+```
+tai
+
+*Tapa 2.*
+
+Helpompi tapa säätää IP-osoitteita ja esim. Wlan verkon asetuksia saattaa valikkopohjainen työkalu **nmtui*' (Text User Interface for controlling Network Manager):
+
+```bash
+sudo nmtui
+```
+... liiku valikoissa tabulaattorilla ja nuolilla, muista tallentaa ennen poistumista.
+
+Tarkista lopuksi 
+```bash
+ip addr
 ```
 
 **Asenna DHCP-palvelin:**
