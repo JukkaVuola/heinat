@@ -270,7 +270,7 @@ Kopioi tai lataa repositoriosta seuraavat tiedostot hakemistoon `/home/pi/heinat
 cd /home/pi/heinat
 python3 -m venv .venv
 source .venv/bin/activate
-pip install flask waitress
+pip install RPi.GPIO flask waitress
 deactivate
 ```
 
