@@ -151,7 +151,7 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN4 | GPIO 5 | 29 |
 | VCC | 5V | 2 tai 4 |
 
-![**Kahden releen lauta**](kuvat/2-relay-module.png)
+![**Esimerkki neljän releen laudan kytkennästä**](kuvat/4-releen-laudan-esimerkkikytkenta.png)
 
 **kahden releen lauta**
 
@@ -161,6 +161,8 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN1 | GPIO 2 | 3 |
 | IN2 | GPIO 3 | 5 |
 | VCC | 5V | 2 tai 4 |
+
+![**Kahden releen lauta**](kuvat/2-relay-module.png)
 
 ### Relelogiikka
 
