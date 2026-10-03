@@ -138,6 +138,8 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 *Yhdistä jumpperilla VCC ja JD-VCC*. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
 (Jos käytät pienempää relekorttia, jätä vain ylimääräiset IN-numerot huomiotta).
 
+---
+
 ![**Neljän releen lauta**](kuvat/4-relay-module.png)
 
 **Neljän releen lauta**
@@ -153,6 +155,8 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 
 ![**Esimerkki neljän releen laudan kytkennästä**](kuvat/4-releen-laudan-esimerkkikytkenta.png)
 
+--- 
+
 **kahden releen lauta**
 
 | Rele | GPIO-BCM | Fyysinen pinni |
@@ -163,6 +167,8 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | VCC | 5V | 2 tai 4 |
 
 ![**Kahden releen lauta**](kuvat/2-relay-module.png)
+
+--- 
 
 ### Relelogiikka
 
