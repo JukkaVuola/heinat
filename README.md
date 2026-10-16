@@ -207,7 +207,7 @@ Seuraavaa kytkentää ei voi suositella:
 
 **Aktiivisen piezon** kytkentä suoraan GPIO-pinniin transistorin kautta: (**VAHVA SUOSITUS**):
 
-Esim transistori BC237 (transistoriksi käy moni muukin, esim. BC547, 2N2222, BC337 jne.
+Esim transistori BC237 (transistoriksi käy moni muukin, esim. BC547, 2N2222, BC337 jne.).
 Tarkista kuitenkin jalkojen järjestys (googlaa transistorin tyyppi ja "datasheet").
 
 Omassani BC237B on tällainen:
