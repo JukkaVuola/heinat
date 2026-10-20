@@ -6,7 +6,7 @@
 
 ## Heinäkaapit
 
-Kulmakaapit on valmistettu havuvanerista. Jos takaseinien leveys on max. 60 cm, saa 120 cm leveästä vanerista helposti sopivia paloja. Itse käytin viimeiseen kaappiin 9 mm havuvaneria kaikkeen levytavaraan. Se on suhteellisen edullista eikä homehdu helposti (kuten koivuvanerille saattaa käydä). Varmasti kalliimpi ja aikaa paremmin kestävä vaihtoehto olisi käyttää vesivaneria tai maatilavaneria, mutta havuvanerillakin pärjää hyvin. Myös kaapin katon tein vanerista (hieman upotettuna). 
+Kulmakaapit on valmistettu havuvanerista. Jos takaseinien leveys on max. 60 cm, saa 120 cm leveästä vanerista helposti sopivia paloja. Itse käytin viimeiseen kaappiin 9 mm havuvaneria kaikkeen levytavaraan. Se on suhteellisen edullista eikä homehdu helposti (kuten koivuvanerille saattaa käydä). Varmasti kalliimpi ja aikaa paremmin kestävä vaihtoehto olisi käyttää vesivaneria tai maatilavaneria, mutta havuvanerillakin pärjää sisätiloissa hyvin. Myös kaapin katon tein vanerista (hieman upotettuna). 
 
 ![Heinäkaappi](kuvat/heinakaappi.jpg)<br></br>
 *Heinäkaappi valmistettiin 9 mm vanerista ja ovi kattopellistä*
@@ -22,7 +22,9 @@ Alkuun laitoin ovien jäykisteeksi 3 cm leveää lattarautaa, mutta myöhempiin 
 Kaapit ovat 2 hyllyn kulmakaappeja
 - korkeus 100 cm
 - takaseinien pituus n. voisi olla 57 - 60 cm
-- takakulman tueksi 50 mm x 50 mm kolmiorimaa n. 50 cm korkea pätkä
+- takakulman tueksi 50 mm x 50 mm kolmiorimaa n. 50 cm korkea pätkä yläosaan
+  (alas asti ei voi laittaa, ettei tule putoavan hyllyn tielle.
+- alareunaan naulauskulma sisäpuolelle tueksi
 - kaapin ovireunat 50 mm x 50 mm neliörimaa ("kakkos kakkosta") ja siihen liimattuna em. kolmiorimaa, pituus 99 cm (koska kolmion muotoinen katto upotetaan hieman).
 - kaappien hyllyt piirsin suoraan vaneriin sitten, kun runko oli valmis. Käytin runkoa piirtomuottina.
 
@@ -43,8 +45,9 @@ Itse hitsasin suojakaiteet tavallisesta putkesta ja maalasin ne. Maalattu putki 
 
 *Maalattuja raudasta tehtyjä suojakaiteita*
 
-Ensiapuna hitsasin uusia kaiteita ruostumattomasta putkesta. Amatöörihitsarille ruostumattoman pyöreän putken hitsaaminen on haastavaa.
-(Vaihtoehtoina ovat ruostumaton puikkohitsaus, MIG-hitsaus ruostumattomalla langalla ja Argon kaasulla tai TIG-hitsaus ruostumattomalla langalla ja Argon kaasulla. Itse käytin MIG-hitsausta). Ruostumattomat laipat tein ruostumattomista naulauslevyistä, mikä helpotti työtä hieman (reiät valmiina ja kokokin melko oikea)
+Ensiapuna hitsasin uusia kaiteita ruostumattomasta putkesta. Amatöörihitsarille ruostumattoman pyöreän putken hitsaaminen oli haastavaa.
+(Vaihtoehtoina ovat ruostumaton puikkohitsaus, MIG-hitsaus ruostumattomalla langalla ja Argon kaasulla tai TIG-hitsaus ruostumattomalla langalla ja Argon kaasulla. Itse käytin MIG-hitsausta). Ruostumattomat laipat tein ruostumattomista naulauslevyistä, mikä helpotti työtä hieman (reiät valmiina ja kokokin melko oikea).
+Käytännössä RST-kaiteet ovat toimineet erittän hyvin.
 
 ![Suojakaiteet ruostumattomasta putkesta](kuvat/suojakaiteet-rst.png)
 
@@ -67,6 +70,7 @@ Helpoin ratkaisu olisi hitsata kestävät suojakaiteet ruostumattomasta neliöpu
 - ruuvinväännin ja poranterät olivat ahkerassa käytössä
 - oviin saranat kiinnitin alumiinisilla pop-niiteillä ja runkoon ruuveilla
 - jäykisteetkin kiinnitin pop-niiteillä 
+- hitsailua suojakaiteiden kanssa, oli hyvää harjoitusta
 
 --- 
 
@@ -81,6 +85,16 @@ Itse käyttämiäni hankintapaikkoja:
 | Kattopelti oviin | [Hammeri.fi kattopeltiä] (https://www.hammer.fi/s/search/?keywords=kattopelti) |
 | Puuosat | [Stark-Suomi noutopihalta] (https://www.stark-suomi.fi/) |
 | RST neliöputkea kaiteisiin | (https://mustajarvi.fi/tuote/30x30x2-rst-nelioputki/) | 
+
+Esim. 3-hyllyisten kaappien johdotukseen käy hyvin 4-johtiminen peräkärrykaapeli. Tätä käytin itse kahden hyllyn tapauksessa, jolloin yksi johdin jäi käyttämättä:
+
+| Komponentti | linkki |
+|---|---|
+| 3-hyllyisen kaapin johdotus | (https://www.puuilo.fi/perakarrykaapeli-flryy-4x0-75mm-1m) |
+| Kytkekentärasioita | (https://www.puuilo.fi/catalogsearch/result/?q=kytkent%C3%A4rasia) |
+| Rasioihin Wagon vipuliittimiä | https://www.puuilo.fi/catalogsearch/result/?q=wago |
+| Johtokiinnikkeitä | https://www.puuilo.fi/catalogsearch/result/?q=johtokiinnike |
+
 
 --- 
 
@@ -114,6 +128,6 @@ Tässä muutama kuva vihjeeksi, miten johdotus on mahdollista tehdä.
 *Tässä kuvassa näkyy tallin seinällä musta 12V kaapeli, kytkentärasia ja alasvienti kaapille*
 
 ---
-
+![Kytkentöjen kokonaiskuva .pdf tiedostona](kuvat/Kytkennat-kuvana2.pdf)
 
 [← Takaisin pääsivulle](README.md)
