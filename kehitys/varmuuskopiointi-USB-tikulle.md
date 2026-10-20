@@ -189,7 +189,11 @@ Syncing disks.
 
 ### Tikun formatointi linuxin ext4 formaattiin
 
-Käytä komentoa ```bash sudo mkfs.ext4 -L backup /dev/sda1``` <br />
+Käytä komentoa 
+```bash
+sudo mkfs.ext4 -L backup /dev/sda1
+``` 
+<br />
 -L backup asettaa tikun nimeksi “backup” — kätevä tunnistamiseen
 
 ```bash
@@ -259,7 +263,8 @@ Korvaa UUID omalla arvollasi!
 
 ## Varmuuskopioinnin skriptit
 
-Luo shelliskripti ```bash 
+Luo shelliskripti:
+```bash 
 nano /home/pi/backup-files.sh
 ```
 jossa on esim. seurava sisältö:
