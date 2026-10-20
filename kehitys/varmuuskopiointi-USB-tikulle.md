@@ -128,7 +128,6 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 
 ```
-
 Osiot saatiin poistettua (d) ja kirjoitettua muutokset tikulle (w).
 Uudessa listauksessa ei enää näy yhtään osiota tikulla:
 
@@ -193,7 +192,6 @@ Käytä komentoa
 ```bash
 sudo mkfs.ext4 -L backup /dev/sda1
 ``` 
-<br />
 -L backup asettaa tikun nimeksi “backup” — kätevä tunnistamiseen
 
 ```bash
@@ -227,7 +225,7 @@ Tarkista tulos:
 df -h
 ```
 
-Tulostuksessa näkyy laite ja sille osoitettu tikku, jos homma on onnistunut:
+Tulostuksessa näkyy laite ja sille osoitettu hakemisto, jos homma on onnistunut:
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
 ...
