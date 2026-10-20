@@ -42,7 +42,9 @@ Laitteen löydyttyä, sitä voi kutsua laitenimellä. Käytä esim. fdisk-ohjelm
 
 
 ### Tikulla olevien osioiden listaus
-Käytä komentoa ```bash sudo fdisk -l /dev/sda ```
+Käytä komentoa ```bash
+sudo fdisk -l /dev/sda
+```
 
 Tuloste:
 ```bash
@@ -66,7 +68,7 @@ Esimerkkitikulla on peräti 4 osiota: sda1, sda2, sda3, sda4
 Osioiden koot eivät kuitenkaan pidä paikkaansa. 
 
 
-### Vanhojen osioiden poistoo
+### Vanhojen osioiden poisto
 
 Tikku on käytetty, joten poistetaan kaikki vanhat osiot:
 
@@ -97,26 +99,24 @@ Help:
    e   resize a partition
    T   discard (trim) sectors
 
-Command (m for help): d                      # Poistetaan osio /dec/sda4
+Command (m for help): d                      # Poistetaan osio /dev/sda4
 Partition number (1-4, default 4):
 
 Partition 4 has been deleted.
 
-Command (m for help): d                      # Poistetaan osio /dec/sda3
+Command (m for help): d                      # Poistetaan osio /dev/sda3
 Partition number (1-3, default 3):
 
 Partition 3 has been deleted.
 
-Command (m for help): d                      # Poistetaan osio /dec/sda2
+Command (m for help): d                      # Poistetaan osio /dev/sda2
 Partition number (1,2, default 2):
 
 Partition 2 has been deleted.
 
-Command (m for help): d                      # Poistetaan osio /dec/sda1
+Command (m for help): d                      # Poistetaan osio /dev/sda1
 Selected partition 1
 Partition 1 has been deleted.
-
-Command (m for help):
 
 
 Command (m for help): w                     # Kirjoitetaan muutokset tikulle
@@ -129,7 +129,9 @@ Syncing disks.
 Osiot saatiin poistettua (d) ja kirjoitettua muutokset tikulle (w).
 Uudessa listauksessa ei enää näy yhtään osiota tikulla:
 
-```bash sudo fdisk -l /dev/sda ```
+```
+bash sudo fdisk -l /dev/sda
+```
 
 Tuloste:
 ```bash
@@ -153,7 +155,7 @@ fdisk:ssä anna komennot järjestyksessä:
 - Enter — oletuslopetussektori (koko tikku)
 - w — tallenna ja poistu
 
-```bash sudo fdisk /dev/sda ```
+```bash sudo fdisk /dev/sda```
 
 Tuloste ja toimet:
 ```bash
@@ -161,7 +163,7 @@ Welcome to fdisk (util-linux 2.41.5).
 Changes will remain in memory only, until you decide to write them.
 Be careful before using the write command.
 
-The device contains 'vfat' signature and it will be removed by a write command. See fdisk(8) man page and --wipe option for more details.
+The device contains 'vfat' signature and it will be removed by a write command. 
 
 Command (m for help): n                                     # Luodaan uusi
 Partition type
@@ -182,7 +184,7 @@ Syncing disks.
 
 ### Tikun formatointi linuxin ext4 formaattiin
 
-Käytä komentoa ```bash sudo mkfs.ext4 -L backup /dev/sda1 ```
+Käytä komentoa ```bash sudo mkfs.ext4 -L backup /dev/sda1``` <br />
 -L backup asettaa tikun nimeksi “backup” — kätevä tunnistamiseen
 
 ```bash
@@ -201,13 +203,13 @@ Writing superblocks and filesystem accounting information: done
 ### Hakemiston luonti ja osoittaminen tikulle
 
 Luo hakemisto, jonka kautta tiedostot osoitetaan tikulle:
-```bash sudo mkdir /backup ```
+```bash sudo mkdir /backup```
 
 Ota hakemisto käyttöön USB-laitteelle ja sen primary osiolle.
-```bash sudo mount /dev/sda1 /backup ```
+```bash sudo mount /dev/sda1 /backup```
 
 Tarkista tulos:
-```bash df -h ```
+```bash df -h```
 
 Tulostuksessa näkyy laite ja sille osoitettu tikku, jos homma on onnistunut:
 ```bash
@@ -222,7 +224,7 @@ Kätevintä on kirjoittaa mount-osoitus suoraan /etc/fstab tiedostoon
 ### Mounttaus automaattiseksi /etc/fstab kautta
 Tikulla on aina yksilöllinen UUID ja se on luotettavin tapa tunnistaa tikku /etc/fstabissa — se ei muutu vaikka tikku kytkettäisiin eri USB-porttiin.
 
-```bash sudo blkid ```
+```bash sudo blkid```
 
 Tulostaa jotain seuraavan kaltaista:
 ```bash
@@ -230,7 +232,7 @@ Tulostaa jotain seuraavan kaltaista:
 ```
 
 Sitten siirrytään muokkaamaan /etc/fstab -tiedostoa
-```bash sudo nano /etc/fstab ``
+```bash sudo nano /etc/fstab```
 
 Lisää tiedoston loppuun rivi:
 ```bash
@@ -241,7 +243,7 @@ Korvaa UUID omalla arvollasi!
 
 ## Varmuuskopioinnin skriptit
 
-Luo shelliskripti ```bash nano /home/pi/backup-files.sh ```, jossa on esim. seurava sisältö:
+Luo shelliskripti ```bash nano /home/pi/backup-files.sh```, jossa on esim. seurava sisältö:
 
 ```bash
 
@@ -262,7 +264,7 @@ Rsync vivut:
 - --delete on tärkeä — se poistaa backupista tiedostot jotka on poistettu lähteestä, jolloin backup pysyy siistinä eikä täytä tikkua vanhoilla tiedostoilla
 
 Anna skriptille suoritusoikeudet
-```bash chmod 755 /home/pi/backup-files.sh ```
+```bash chmod 755 /home/pi/backup-files.sh```
 ja lopuksi testaa toiminta
 
 ```bash
