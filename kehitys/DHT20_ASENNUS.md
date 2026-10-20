@@ -1,4 +1,4 @@
-# DHT20-lämpötila/kosteus-anturi — asennusohje
+# DHT20-lämpötila/kosteus -anturi — asennusohje
 
 Tämä uudempi versio heinäautomaatin ohjauksesta tukee optionaalista DHT20 (AHT20) -anturia, joka näyttää
 tallin lämpötilan ja kosteuden web-hallintasivun yläreunassa.
@@ -7,7 +7,7 @@ tallin lämpötilan ja kosteuden web-hallintasivun yläreunassa.
 
 *Lämpötila ja kosteus ohjausnäkymässä*
 
-Anturi on optionaalinen — jos se puuttuu tai ei ole kytketty,
+**Anturi on optionaalinen** — jos se puuttuu tai ei ole kytketty,
 heinäautomaatti toimii normaalisti ilman anturitietoja.
 
 Kopioi uudempi skripti vanhan tilalle. Kannattaa ensin varmuuden vuoksi tehdä vanhasta varmuuskopio, jos jotain menee pieleen.
@@ -18,6 +18,7 @@ mv heina_automaatti.py heina_automaatti-old.py
 git fetch
 git checkout HEAD kehitys/
 mv kehitys/heina_automaatti-with-dht20.py heina_automaatti.py
+chmod 755 heina_automaatti.py
 ```
 
 Jos git ei ole käytössä, kopioi kansion **kehitys** sisältä ao. päivitetty pääskripti.
@@ -172,7 +173,7 @@ sudo systemctl restart heina-automaatti.service
 Avaa selaimella `http://192.168.50.1:8080/` — lämpötila ja kosteus
 näkyvät ajan vieressä sivun yläreunassa:
 
-```
+```bash
 Nykyinen aika: 2026-10-20 08:35:00  🌡 22.3 °C   💧 45.2 %
 ```
 
