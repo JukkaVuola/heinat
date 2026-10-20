@@ -269,15 +269,15 @@ nano /home/pi/backup-files.sh
 ```
 jossa on esim. seurava sisältö:
 
-```bash
+`
 
-  1 #!/usr/bin/bash
-  2 # ------------------------------------------------------------
-  3 # Varmuuskopioidaan kotihakemisto ja /etc kohteeseen /backup
-  4 # ------------------------------------------------------------
-  5 rsync -rtqpog --delete /etc /backup/
-  6 rsync -rtqpog --delete /home/pi /backup/
-```
+  #!/usr/bin/bash
+  # ------------------------------------------------------------
+  # Varmuuskopioidaan kotihakemisto ja /etc kohteeseen /backup
+  # ------------------------------------------------------------
+  rsync -rtqpog --delete /etc /backup/
+  rsync -rtqpog --delete /home/pi /backup/
+`
 
 Rsync vivut:
 - -r rekusiivisesti (myös alihakemistot)
