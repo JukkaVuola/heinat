@@ -42,8 +42,10 @@ Laitteen löydyttyä, sitä voi kutsua laitenimellä. Käytä esim. fdisk-ohjelm
 
 
 ### Tikulla olevien osioiden listaus
+Käytä komentoa ```bash sudo fdisk -l /dev/sda ```
+
+Tuloste:
 ```bash
-sudo fdisk -l /dev/sda
 Disk /dev/sda: 964 MiB, 1010826752 bytes, 1974271 sectors
 Disk model: USB Flash Disk
 Units: sectors of 1 * 512 = 512 bytes
@@ -70,7 +72,10 @@ Tikku on käytetty, joten poistetaan kaikki vanhat osiot:
 
 ```bash
 sudo fdisk /dev/sda
+```
 
+Tulostaa jotain seuraavan kaltaista ja fdisk:ssä: d poistaa vanhat osiot, n luo uuden, w tallentaa.
+```bash
 Command (m for help): m                      # m-kirjaimella ohje
 
 Help:
@@ -122,10 +127,12 @@ Syncing disks.
 ```
 
 Osiot saatiin poistettua (d) ja kirjoitettua muutokset tikulle (w).
-Listauksessa ei enää näy yhtään osiota tikulla:
+Uudessa listauksessa ei enää näy yhtään osiota tikulla:
 
+```bash sudo fdisk -l /dev/sda ```
+
+Tuloste:
 ```bash
-sudo fdisk -l /dev/sda
 Disk /dev/sda: 964 MiB, 1010826752 bytes, 1974271 sectors
 Disk model: USB Flash Disk
 Units: sectors of 1 * 512 = 512 bytes
@@ -139,38 +146,39 @@ Disk identifier: 0xc9d0c9d0
 
 fdisk:ssä anna komennot järjestyksessä:
 
-n — uusi osio
-p — primary
-1 — osionumero
-Enter — oletusaloitussektori
-Enter — oletuslopetussektori (koko tikku)
-w — tallenna ja poistu
+- n — uusi osio
+- p — primary
+- 1 — osionumero
+- Enter — oletusaloitussektori
+- Enter — oletuslopetussektori (koko tikku)
+- w — tallenna ja poistu
 
+```bash sudo fdisk /dev/sda ```
+
+Tuloste ja toimet:
 ```bash
-sudo fdisk /dev/sda
-
 Welcome to fdisk (util-linux 2.41.5).
 Changes will remain in memory only, until you decide to write them.
 Be careful before using the write command.
 
 The device contains 'vfat' signature and it will be removed by a write command. See fdisk(8) man page and --wipe option for more details.
 
-Command (m for help): n
+Command (m for help): n                                     # Luodaan uusi
 Partition type
    p   primary (0 primary, 0 extended, 4 free)
    e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
+Select (default p): p                                       # Primary osio
+Partition number (1-4, default 1): 1                        # Osio numero 1
 First sector (2048-1974270, default 2048):
 Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-1974270, default 1974270):
 
 Created a new partition 1 of type 'Linux' and of size 963 MiB.
 
-Command (m for help): w
+Command (m for help): w                                      # Tallennetaan muutokset tikulle
 The partition table has been altered.
 Calling ioctl() to re-read partition table.
 Syncing disks.
-
+```
 
 ### Tikun formatointi linuxin ext4 formaattiin
 
@@ -191,10 +199,18 @@ Writing superblocks and filesystem accounting information: done
 ```
 
 ### Hakemiston luonti ja osoittaminen tikulle
+
+Luo hakemisto, jonka kautta tiedostot osoitetaan tikulle:
+```bash sudo mkdir /backup ```
+
+Ota hakemisto käyttöön USB-laitteelle ja sen primary osiolle.
+```bash sudo mount /dev/sda1 /backup ```
+
+Tarkista tulos:
+```bash df -h ```
+
+Tulostuksessa näkyy laite ja sille osoitettu tikku, jos homma on onnistunut:
 ```bash
-sudo mkdir /backup
-sudo mount /dev/sda1 /backup
-df -h
 Filesystem      Size  Used Avail Use% Mounted on
 ...
 /dev/sda1       930M  264K  866M   1% /backup
@@ -206,15 +222,16 @@ Kätevintä on kirjoittaa mount-osoitus suoraan /etc/fstab tiedostoon
 ### Mounttaus automaattiseksi /etc/fstab kautta
 Tikulla on aina yksilöllinen UUID ja se on luotettavin tapa tunnistaa tikku /etc/fstabissa — se ei muutu vaikka tikku kytkettäisiin eri USB-porttiin.
 
+```bash sudo blkid ```
+
+Tulostaa jotain seuraavan kaltaista:
 ```bash
-sudo blkid
 /dev/sda1: LABEL="backup" UUID="a5e0aca4-cb27-4a0c-be04-284bff3c59ca" BLOCK_SIZE="4096" TYPE="ext4"
-```bash
+```
 
 Sitten siirrytään muokkaamaan /etc/fstab -tiedostoa
-```bash
-sudo nano /etc/fstab
-```
+```bash sudo nano /etc/fstab ``
+
 Lisää tiedoston loppuun rivi:
 ```bash
 UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /backup  ext4  defaults,noatime  0  0
@@ -225,7 +242,6 @@ Korvaa UUID omalla arvollasi!
 ## Varmuuskopioinnin skriptit
 
 Luo shelliskripti ```bash nano /home/pi/backup-files.sh ```, jossa on esim. seurava sisältö:
-
 
 ```bash
 
@@ -238,12 +254,12 @@ Luo shelliskripti ```bash nano /home/pi/backup-files.sh ```, jossa on esim. seur
 ```
 
 Rsync vivut:
--r rekusiivisesti (myös alihakemistot)
--t säilytä muokkausajat
--q hiljaisesti (tukahduttaa virheviestit)
--p säilytä oikeudet
--og säilyttää omistajuustiedot joka on kätevää palautustilanteessa
---delete on tärkeä — se poistaa backupista tiedostot jotka on poistettu lähteestä, jolloin backup pysyy siistinä eikä täytä tikkua vanhoilla tiedostoilla
+- -r rekusiivisesti (myös alihakemistot)
+- -t säilytä muokkausajat
+- -q hiljaisesti (tukahduttaa virheviestit)
+- -p säilytä oikeudet
+- -og säilyttää omistajuustiedot joka on kätevää palautustilanteessa
+- --delete on tärkeä — se poistaa backupista tiedostot jotka on poistettu lähteestä, jolloin backup pysyy siistinä eikä täytä tikkua vanhoilla tiedostoilla
 
 Anna skriptille suoritusoikeudet
 ```bash chmod 755 /home/pi/backup-files.sh ```
@@ -273,4 +289,7 @@ Rsync kopioi vain muuttuneet tiedostot joten se on nopea ja tehokas.
 Toimii hyvin USB-tikulle.
 Kun varmuuskopio tehdään pääkäyttäjän oikeuksilla, sillä on oikeus kopioida myös /etc -hakemisto
 (...jossa on mm. muokkaamasi systemctl käynnistystiedostot.)
+
+--- 
+[← Takaisin](README.md)
 
