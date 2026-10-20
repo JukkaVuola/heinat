@@ -42,11 +42,13 @@ Laitteen löydyttyä, sitä voi kutsua laitenimellä. Käytä esim. fdisk-ohjelm
 
 
 ### Tikulla olevien osioiden listaus
-Käytä komentoa ```bash
+Käytä komentoa 
+```bash
 sudo fdisk -l /dev/sda
 ```
 
 Tuloste:
+
 ```bash
 Disk /dev/sda: 964 MiB, 1010826752 bytes, 1974271 sectors
 Disk model: USB Flash Disk
@@ -61,7 +63,6 @@ Device     Boot      Start        End    Sectors   Size Id Type
 /dev/sda2       1183556331 4412578037 3229021707   1.5T 30 unknown
 /dev/sda3       1325451862 2509223114 1183771253 564.5G 46 unknown
 /dev/sda4       1394614348 1394635684      21337  10.4M 45 unknown
-
 ```
 
 Esimerkkitikulla on peräti 4 osiota: sda1, sda2, sda3, sda4
@@ -77,6 +78,7 @@ sudo fdisk /dev/sda
 ```
 
 Tulostaa jotain seuraavan kaltaista ja fdisk:ssä: d poistaa vanhat osiot, n luo uuden, w tallentaa.
+
 ```bash
 Command (m for help): m                      # m-kirjaimella ohje
 
@@ -124,13 +126,14 @@ Command (m for help): w                     # Kirjoitetaan muutokset tikulle
 The partition table has been altered.
 Calling ioctl() to re-read partition table.
 Syncing disks.
+
 ```
 
 Osiot saatiin poistettua (d) ja kirjoitettua muutokset tikulle (w).
 Uudessa listauksessa ei enää näy yhtään osiota tikulla:
 
-```
-bash sudo fdisk -l /dev/sda
+```bash 
+sudo fdisk -l /dev/sda
 ```
 
 Tuloste:
@@ -155,7 +158,9 @@ fdisk:ssä anna komennot järjestyksessä:
 - Enter — oletuslopetussektori (koko tikku)
 - w — tallenna ja poistu
 
-```bash sudo fdisk /dev/sda```
+```bash 
+sudo fdisk /dev/sda
+```
 
 Tuloste ja toimet:
 ```bash
@@ -203,13 +208,20 @@ Writing superblocks and filesystem accounting information: done
 ### Hakemiston luonti ja osoittaminen tikulle
 
 Luo hakemisto, jonka kautta tiedostot osoitetaan tikulle:
-```bash sudo mkdir /backup```
+
+```bash 
+sudo mkdir /backup
+```
 
 Ota hakemisto käyttöön USB-laitteelle ja sen primary osiolle.
-```bash sudo mount /dev/sda1 /backup```
+```bash
+sudo mount /dev/sda1 /backup
+```
 
 Tarkista tulos:
-```bash df -h```
+```bash 
+df -h
+```
 
 Tulostuksessa näkyy laite ja sille osoitettu tikku, jos homma on onnistunut:
 ```bash
@@ -224,7 +236,9 @@ Kätevintä on kirjoittaa mount-osoitus suoraan /etc/fstab tiedostoon
 ### Mounttaus automaattiseksi /etc/fstab kautta
 Tikulla on aina yksilöllinen UUID ja se on luotettavin tapa tunnistaa tikku /etc/fstabissa — se ei muutu vaikka tikku kytkettäisiin eri USB-porttiin.
 
-```bash sudo blkid```
+```bash
+sudo blkid
+```
 
 Tulostaa jotain seuraavan kaltaista:
 ```bash
@@ -232,7 +246,9 @@ Tulostaa jotain seuraavan kaltaista:
 ```
 
 Sitten siirrytään muokkaamaan /etc/fstab -tiedostoa
-```bash sudo nano /etc/fstab```
+```bash
+sudo nano /etc/fstab
+```
 
 Lisää tiedoston loppuun rivi:
 ```bash
@@ -243,7 +259,10 @@ Korvaa UUID omalla arvollasi!
 
 ## Varmuuskopioinnin skriptit
 
-Luo shelliskripti ```bash nano /home/pi/backup-files.sh```, jossa on esim. seurava sisältö:
+Luo shelliskripti ```bash 
+nano /home/pi/backup-files.sh
+```
+jossa on esim. seurava sisältö:
 
 ```bash
 
@@ -264,7 +283,10 @@ Rsync vivut:
 - --delete on tärkeä — se poistaa backupista tiedostot jotka on poistettu lähteestä, jolloin backup pysyy siistinä eikä täytä tikkua vanhoilla tiedostoilla
 
 Anna skriptille suoritusoikeudet
-```bash chmod 755 /home/pi/backup-files.sh```
+```bash 
+chmod 755 /home/pi/backup-files.sh
+```
+
 ja lopuksi testaa toiminta
 
 ```bash
