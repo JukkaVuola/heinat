@@ -5,7 +5,7 @@ Kopioinnilla voi varmistaa skriptit ja niiden asetukset, mutta jos koko RPi pit�
 
 ## Miten löydän USB-tikun?
 Kun kytket USB-tikun RPi:n USB-porttiin, hankaluutena on usein löytää kyseinen laite ja ottaa se käyttöön.
-Yksi tapa on käyttää komentoa dmesg tikun heti tikun kytkemisen jälkeen.
+Yksi tapa on käyttää komentoa 'dmesg' heti tikun kytkemisen jälkeen.
 
 ---
 ```bash
