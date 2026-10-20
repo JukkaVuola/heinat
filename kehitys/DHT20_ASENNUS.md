@@ -98,7 +98,7 @@ Jos `38` ei näy, tarkista kytkentä ja että VCC on kytketty 5V-pinniin.
 
 ---
 
-## Python-kirjastojen asennus (Pi 3B)
+## Python-kirjastojen asennus (RPi 3B)
 
 RPi 3B:llä asennus vaatii erityiskohtelua — **järjestys on tärkeä**.
 
@@ -119,7 +119,7 @@ sudo apt install swig python3-dev -y
 Tämä vaihe on kriittinen Pi 3B:llä — tavallinen `pip install` epäonnistuu
 ilman `swig`-työkalua:
 
-**Testattu RPi 2B ja RPi 3B, toimivat**
+(Testattu RPi 2B ja RPi 3B, toimivat.)
 
 ```bash
 sudo apt install liblgpio-dev -y
@@ -198,3 +198,5 @@ Nykyinen aika: 2026-10-20 08:35:00  🌡 22.3 °C   💧 45.2 %
 **Web-sivulla ei näy lämpötilaa vaikka testaus toimii:**
 - Varmista että virtuaaliympäristö on sama jota palvelu käyttää
 - Tarkista palvelun loki: `journalctl -u heina-automaatti.service -n 20`
+--- 
+[← Takaisin](../README.md)
