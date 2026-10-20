@@ -4,6 +4,8 @@ Raspberry Pi -pohjainen vuorokausiohjain hevosten heinäautomaattien sähkölukk
 
 Voi ohjata jopa kahdeksan hyllyn sähkölukkoja itsenäisesti, jokaiselle hyllylle oma ajastus. Selainpohjainen hallintaliittymä toimii tietokoneella, tabletilla ja puhelimella — myös suoraan ethernet-kaapelilla ilman WiFiä tai internet-yhteyttä.
 
+---
+
 ## Ominaisuudet
 
 - Tuki 1–8 hyllylle, jokaiselle hyllytasolle oma ajastus
@@ -136,8 +138,6 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 *Yhdistä jumpperilla VCC ja JD-VCC*. (Jos ei ole jumpperia, kytke JD-VCC suoraan johonkin 5V pinniin Raspberryssä.)
 (Jos käytät pienempää relekorttia, jätä vain ylimääräiset IN-numerot huomiotta).
 
----
-
 ![**Neljän releen lauta**](kuvat/4-relay-module.png)
 
 **Neljän releen lauta**
@@ -151,9 +151,7 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN4 | GPIO 5 | 29 |
 | VCC | 5V | 2 tai 4 |
 
-![**Esimerkki neljän releen laudan kytkennästä**](kuvat/4-releen-laudan-esimerkkikytkenta.png)
-
---- 
+![**Kahden releen lauta**](kuvat/2-relay-module.png)
 
 **kahden releen lauta**
 
@@ -163,10 +161,6 @@ Relelaudassa saattaa olla myös erikseen pinnit GND, VCC ja JD-VCC.
 | IN1 | GPIO 2 | 3 |
 | IN2 | GPIO 3 | 5 |
 | VCC | 5V | 2 tai 4 |
-
-![**Kahden releen lauta**](kuvat/2-relay-module.png)
-
---- 
 
 ### Relelogiikka
 
@@ -188,58 +182,16 @@ Käytä **aktiivista** piezo-summeria. Aktiivisessa summerissa on sisäinen oski
 ja se piippaa pelkällä tasajännitteellä. Passiivinen summeri vaatii PWM-ohjauksen
 eikä toimi tässä projektissa.
 
-Piezon kytkentä olisi turvallisinta tehdä transistorin kautta. Periaatteessa riippuen piezon tyypistä (itselläni 3-24 V DC ja < 30mA virta) kytkentä, jossa piezon + puoli kytketään suoraan GPIO pinniin - toimii. Se saattaa kuitenkin rikkoa GPIO-pinnin (etenkin jatkuvassa käytössä) ja esim. 30mA on liikaa GPIO pinnille.
-
-Transistorin kautta kytkentä muuttuu siten, että GPIO-pinni kytketään 1k ohmin vastuksen kautta transistorin kantaan ja transistori ohjaa piezon virtaa. Näin GPIO-pinni ei kuormitu liikaa ja kestää paremmin jatkuvassa käytössä.
-
-Seuraavaa kytkentää ei voi suositella:
-
 ![**Piezo**](kuvat/active-piezo.png)
 
 
-**Aktiivisen piezon** kytkentä suoraan GPIO-pinniin:
+**Aktiivisen piezon** kytkentä:
 
 | Piezo | GPIO-BCM | Fyysinen pinni |
 |---|---|---|
 | + johto (punainen) | 17 | 11 |
 | - johto (musta) | Ground | 6 tai 9 tai 14 |
 
-
-**Aktiivisen piezon** kytkentä suoraan GPIO-pinniin transistorin kautta: (**VAHVA SUOSITUS**):
-
-Esim transistori BC237 (transistoriksi käy moni muukin, esim. BC547, 2N2222, BC337 jne.).
-Tarkista kuitenkin jalkojen järjestys (googlaa transistorin tyyppi ja "datasheet").
-
-Omassani BC237B on tällainen:
-
-    ┌─────┐
-    │     │
-    └┬─┬─┬┘
-     C B E
-     │ │ │
-     │ │ └── GND
-     │ └──── 1 kΩ vastuksen kautta GPIO-pinniin
-     └────── Piezon miinus 
-
-+5 V ─── Piezon plus
-
-
-![**Piezo ja NPN-transistori**](kuvat/Piezo-NPN-transistorin-kautta.png)
-
-| Transistori | Kytkentä | Fyysinen pinni |
-|---|---|---|
-| Kollectori (C)| Piezon miinus | musta johto |
-| Kanta (B) | 1k ohm vastus | GPIO-pinni 17 |
-| Emitteri (E)| GND | 6 tai 9 tai 14  |
-
-
-| Piezo | Kytkentä | Fyysinen pinni |
-|---|---|---|
-| Musta johto | Transistorin C |   |
-| Punainen johto | RPI 5V | 4 |
-
-
-(Myös kytkentöjen fyysistä kokonaiskuvaa päivitetty tältä osin.)
 ---
 
 ## Toimintaperiaate
@@ -390,9 +342,7 @@ Jälkimmäinen komento tarkistaa, tulosteen pitäisi näyttää rivi `/etc/sudoe
 Tämä tapa ei vaadi WiFiä, tukiasemia eikä internet-yhteyttä.
 Toimii aina, myös tallissa ilman verkkoinfrastruktuuria.
 
-** Aseta Raspberry Pi:lle kiinteä IP-osoite: **
-
-*Tapa 1.*
+**Aseta Raspberry Pi:lle kiinteä IP-osoite:**
 
 ```bash
 sudo nano /etc/dhcpcd.conf
@@ -403,21 +353,6 @@ Lisää tiedoston loppuun:
 ```
 interface eth0
 static ip_address=192.168.50.1/24
-```
-tai
-
-*Tapa 2.*
-
-Helpompi tapa säätää IP-osoitteita ja esim. Wlan verkon asetuksia saattaa valikkopohjainen työkalu **nmtui*' (Text User Interface for controlling Network Manager):
-
-```bash
-sudo nmtui
-```
-... liiku valikoissa tabulaattorilla ja nuolilla, muista tallentaa ennen poistumista.
-
-Tarkista lopuksi 
-```bash
-ip addr
 ```
 
 **Asenna DHCP-palvelin:**
@@ -576,15 +511,22 @@ sudo date -s "15 sep 2026 11:27:00"
 
 ```
 heinat/
-├── README.md					# Kuvaus ja ohjeistus
+├── README.md                   # Kuvaus ja ohjeistus
 ├── kaapit.md                   # Kaappien rakennekuvaus
 ├── heina_automaatti.py         # Pääskripti
 ├── config.json                 # Asetukset (muokattavissa)
 ├── heina-automaatti.service    # systemd-palvelutiedosto
 ├── LICENSE                     # Lisenssi (MIT)
+├── kehitys/                    # Kehityskansio - jotain uutta
 ├── kuvat/                      # Kuvakansio
 └── .venv/                      # Python-virtuaaliympäristö (luodaan asennuksessa)
 ```
+
+### Kehityskansiossa
+Nyt mm. DHT20-anturin (lämpötila ja kosteus) lisäys.
+
+*Myöhemmin tulossa mm. ohje varmuuskopioinnista USB-tikulle.*
+
 
 ---
 
