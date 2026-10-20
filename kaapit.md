@@ -128,6 +128,6 @@ Tässä muutama kuva vihjeeksi, miten johdotus on mahdollista tehdä.
 *Tässä kuvassa näkyy tallin seinällä musta 12V kaapeli, kytkentärasia ja alasvienti kaapille*
 
 ---
-![Kytkentöjen kokonaiskuva .pdf tiedostona](kuvat/Kytkennat-kuvana2.pdf)
+[Kytkentöjen kokonaiskuva .pdf tiedostona](kuvat/Kytkennat-kuvana2.pdf)
 
 [← Takaisin pääsivulle](README.md)
