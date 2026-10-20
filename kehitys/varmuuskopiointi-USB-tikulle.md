@@ -320,5 +320,5 @@ Kun varmuuskopio tehdään pääkäyttäjän oikeuksilla, sillä on oikeus kopio
 (...jossa on mm. muokkaamasi systemctl käynnistystiedostot.)
 
 --- 
-[← Takaisin](README.md)
+[← Takaisin](../README.md)
 
