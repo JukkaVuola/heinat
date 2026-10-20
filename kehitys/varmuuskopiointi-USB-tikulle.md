@@ -269,7 +269,7 @@ nano /home/pi/backup-files.sh
 ```
 jossa on esim. seurava sisältö:
 
-`
+```bash 
 
   #!/usr/bin/bash
   # ------------------------------------------------------------
@@ -277,7 +277,7 @@ jossa on esim. seurava sisältö:
   # ------------------------------------------------------------
   rsync -rtqpog --delete /etc /backup/
   rsync -rtqpog --delete /home/pi /backup/
-`
+```
 
 Rsync vivut:
 - -r rekusiivisesti (myös alihakemistot)
