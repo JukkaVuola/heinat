@@ -524,6 +524,7 @@ heinat/
 
 ### Kehityskansiossa
 Nyt mm. DHT20-anturin (lämpötila ja kosteus) lisäys.
+[Lue lisää anturin asennuksesta](kehitys/DHT20_ASENNUS.md)
 
 *Myöhemmin tulossa mm. ohje varmuuskopioinnista USB-tikulle.*
 
