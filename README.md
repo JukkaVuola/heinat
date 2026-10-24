@@ -205,7 +205,7 @@ Seuraavaa kytkentää ei voi suositella:
 | - johto (musta) | Ground | 6 tai 9 tai 14 |
 
 
-**Aktiivisen piezon** kytkentä suoraan GPIO-pinniin transistorin kautta: (**VAHVA SUOSITUS**):
+**Aktiivisen piezon** kytkentä suoraan GPIO-pinniin transistorin kautta (**VAHVA SUOSITUS**):
 
 Esim transistori BC237 (transistoriksi käy moni muukin, esim. BC547, 2N2222, BC337 jne.).
 Tarkista kuitenkin jalkojen järjestys (googlaa transistorin tyyppi ja "datasheet").
@@ -586,6 +586,16 @@ heinat/
 ├── kuvat/                      # Kuvakansio
 └── .venv/                      # Python-virtuaaliympäristö (luodaan asennuksessa)
 ```
+
+## Valmis image 
+Tuntuuko hankalalta?
+Ei hätää - tarjolla on myös valmis RPi-image, jossa on **kaikki asennukset tehty valmiiksi**.
+Image on testattu RPi2B ja RPi3B laitteilla. Asennuskansiosta löydät myös ohjeet, miten image otetaan käyttöön.
+Voit ladata imagen ja ohjeet täältä:
+
+[Valmis image OneDrivessa] (https://1drv.ms/f/c/8516c741e0ef20cd/IgCJhu8e5RtzSo6X8FoF-DmRAdCwzmfblNEfCi4kCDuwozs?e=1mmDkk)
+
+---
 
 ### Kehityskansiossa
 Nyt mm. DHT20-anturin (lämpötila ja kosteus) lisäys.
