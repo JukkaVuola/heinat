@@ -593,7 +593,7 @@ Ei hätää - tarjolla on myös valmis RPi-image, jossa on **kaikki asennukset t
 Image on testattu RPi2B ja RPi3B laitteilla. Asennuskansiosta löydät myös ohjeet, miten image otetaan käyttöön.
 Voit ladata imagen ja ohjeet täältä:
 
-[Valmis image OneDrivessa] (https://1drv.ms/f/c/8516c741e0ef20cd/IgCJhu8e5RtzSo6X8FoF-DmRAdCwzmfblNEfCi4kCDuwozs?e=1mmDkk)
+[Valmis image OneDrivessa](https://1drv.ms/f/c/8516c741e0ef20cd/IgCJhu8e5RtzSo6X8FoF-DmRAdCwzmfblNEfCi4kCDuwozs?e=1mmDkk)
 
 ---
 
