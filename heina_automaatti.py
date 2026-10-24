@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Heinäautomaatti - releiden ja piezo-summerin vuorokausiohjauksen pääskripti.
+Heinäautomaatti - releiden ja piezo-summerin vuorokausiohjaus.
 
 - Ohjaa releitä (tuki 8 hyllylle)
 - Piippaa aktiivisella piezolla ennen releen aktivointia
 - Vuorokausiajastin (samat ajat joka päivä), aikavyöhyke = järjestelmän paikallinen aika
 - Web-käyttöliittymä (Flask) ajastusten muokkaukseen, manuaaliseen testaukseen ja lokin lukuun
-- Asetukset tallennetaan config.json-tiedostoon (ei tähän tiedostoon!)
+- Asetukset tallennetaan config.json-tiedostoon
+- Optionaalinen DHT20-lämpötila/kosteus-anturi (I2C, adafruit-circuitpython-ahtx0)
 
 Releet: GPIO.LOW = rele vetää (aktiivi-LOW relemoduuli)
 Piezo: GPIO.HIGH = piippaa
@@ -16,8 +17,6 @@ Hyllyn näkyvyys web-UI:ssa:
   visible=false  -> hylly piilotettu UI:sta, mutta ajastin ja GPIO toimivat
                     normaalisti jos enabled=true.
   visible=true   -> hylly näkyy UI:ssa ja on muokattavissa.
-  Muuta visible-arvo config.json:ssa tekstieditorilla tai suoraan tiedostoon;
-  skripti lukee arvon käynnistyessä ja tallennuksen yhteydessä.
 """
 
 import json
@@ -34,8 +33,36 @@ try:
     import RPi.GPIO as GPIO
     GPIO_AVAILABLE = True
 except ImportError:
-    # Mahdollistaa testaamisen koneella, jossa ei ole RPi.GPIO:ta
     GPIO_AVAILABLE = False
+
+# ---------------------------------------------------------------------------
+# DHT20 (AHT20) -anturi I2C-väylän kautta (optionaalinen)
+# Asenna: pip install adafruit-circuitpython-ahtx0
+# I2C käyttöön: sudo raspi-config -> Interface Options -> I2C -> Enable
+# Jos kirjasto tai anturi puuttuu, sivusto toimii normaalisti ilman anturitietoja.
+# ---------------------------------------------------------------------------
+try:
+    import board
+    import adafruit_ahtx0
+    _i2c = board.I2C()
+    _dht20 = adafruit_ahtx0.AHTx0(_i2c)
+    DHT20_AVAILABLE = True
+except Exception:
+    DHT20_AVAILABLE = False
+    _dht20 = None
+
+def read_dht20() -> dict | None:
+    """Lukee lämpötilan ja kosteuden DHT20-anturilta.
+    Palauttaa {'temp': float, 'hum': float} tai None jos anturi ei ole käytössä/virhe."""
+    if not DHT20_AVAILABLE or _dht20 is None:
+        return None
+    try:
+        return {
+            "temp": round(_dht20.temperature, 1),
+            "hum":  round(_dht20.relative_humidity, 1),
+        }
+    except Exception:
+        return None
 
 # ---------------------------------------------------------------------------
 # Polut ja vakiot
@@ -56,7 +83,6 @@ _log_lock = threading.Lock()
 
 
 def log_event(message: str) -> None:
-    """Kirjoittaa aikaleimatun rivin lokitiedostoon ja tulostaa sen konsoliin."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"{timestamp} - {message}"
     print(line, flush=True)
@@ -74,7 +100,6 @@ def read_log() -> str:
             return ""
         with open(LOG_FILE, "r", encoding="utf-8") as f:
             lines = f.readlines()
-        # Uusin rivi ylimpänä
         return "".join(reversed(lines))
 
 
@@ -91,9 +116,6 @@ def clear_log() -> None:
 
 _config_lock = threading.Lock()
 _config = {}
-
-# Seuraa, onko jokin hylly jo lauennut tänä päivänä (estää toiston samana
-# vuorokautena, jos sekuntiosuma "ajaa" useammin kuin kerran)
 _last_run_date = {}
 
 
@@ -112,7 +134,7 @@ def save_config(cfg: dict) -> None:
 def get_config() -> dict:
     global _config
     with _config_lock:
-        return json.loads(json.dumps(_config))  # syvä kopio
+        return json.loads(json.dumps(_config))
 
 
 def set_config(cfg: dict) -> None:
@@ -138,7 +160,6 @@ def gpio_setup():
     GPIO.setmode(GPIO.BCM)
     cfg = get_config()
 
-    # Alustetaan kaikki pinnit, myös piilotettujen hyllyjen (visible=false)
     pins = [cfg["buzzer_pin"]]
     for shelf in cfg["shelves"].values():
         pins.append(shelf["pin"])
@@ -149,11 +170,9 @@ def gpio_setup():
         GPIO.setup(pin, GPIO.OUT)
         _initialized_pins.add(pin)
 
-    # Releet: HIGH = lepotila (ei vedä), LOW = vetää
     for shelf in cfg["shelves"].values():
         GPIO.output(shelf["pin"], GPIO.HIGH)
 
-    # Piezo: LOW = ei piippaa
     GPIO.output(cfg["buzzer_pin"], GPIO.LOW)
 
 
@@ -163,7 +182,6 @@ def gpio_cleanup():
 
 
 def relay_set(pin: int, active: bool) -> None:
-    """active=True -> rele vetää (GPIO LOW), active=False -> lepotila (HIGH)"""
     if not GPIO_AVAILABLE:
         return
     GPIO.output(pin, GPIO.LOW if active else GPIO.HIGH)
@@ -176,15 +194,10 @@ def buzzer_set(pin: int, on: bool) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Hyllyn avaussekvenssi: piippaukset + rele
+# Hyllyn avaussekvenssi
 # ---------------------------------------------------------------------------
 
 def run_shelf_sequence(shelf_key: str) -> None:
-    """
-    Suorittaa täyden sekvenssin yhdelle hyllylle:
-    N x (piippaus + tauko) -> rele vetää relay_active_seconds ajan -> rele pois
-    Tämä funktio on suunniteltu ajettavaksi omassa säikeessään.
-    """
     cfg = get_config()
     shelf = cfg["shelves"].get(shelf_key)
     if shelf is None or not shelf.get("enabled", True):
@@ -223,7 +236,7 @@ def trigger_shelf_async(shelf_key: str, manual: bool = False) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Ajastinsäie — käy läpi KAIKKI hyllyt riippumatta visible-kentästä
+# Ajastinsäie
 # ---------------------------------------------------------------------------
 
 def parse_hhmm(value: str):
@@ -243,7 +256,6 @@ def scheduler_loop(stop_event: threading.Event):
         today_str = now.strftime("%Y-%m-%d")
 
         for shelf_key, shelf in cfg["shelves"].items():
-            # visible-kenttä ei vaikuta ajastimeen — ainoastaan enabled ratkaisee
             if not shelf.get("enabled", True):
                 continue
 
@@ -306,11 +318,17 @@ PAGE_TEMPLATE = """
     label { display:block; margin-bottom:0.3rem; font-weight:bold;}
     .row { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-bottom:0.5rem;}
     .muted { color:#777; font-size:0.85rem;}
+    .sensor { color:#1a5276; font-weight:bold; margin-left: 1rem; }
   </style>
 </head>
 <body>
   <h1>Heinäautomaatti</h1>
-  <p class="muted">Nykyinen aika: {{ now }}</p>
+  <p class="muted">
+    Nykyinen aika: {{ now }}
+    {% if sensor %}
+      <span class="sensor">&#127777; {{ sensor.temp }} °C &nbsp; &#128167; {{ sensor.hum }} %</span>
+    {% endif %}
+  </p>
   <div class="nav">
     <a href="{{ url_for('index') }}">Etusivu</a>
     <a href="{{ url_for('log_view') }}">Loki</a>
@@ -427,7 +445,7 @@ LOG_TEMPLATE = """
   <h1>Tapahtumaloki</h1>
   <div class="nav">
     <a href="{{ url_for('index') }}">Etusivu</a>
-    <a href="{{ url_for('log_view') }}">Päivitä</a>
+    <a href="{{ url_for('log_view') }}">Päivitä</a> (Uusin rivi ylimpänä)
   </div>
   <form method="post" action="{{ url_for('log_clear') }}"
         onsubmit="return confirm('Haluatko varmasti tyhjentää lokin? Tätä ei voi perua.');">
@@ -440,7 +458,6 @@ LOG_TEMPLATE = """
 
 
 def get_visible_shelves(cfg: dict) -> dict:
-    """Palauttaa vain hyllyt, joilla visible=true (tai kenttä puuttuu -> näkyvä)."""
     return {
         key: shelf
         for key, shelf in cfg["shelves"].items()
@@ -461,6 +478,7 @@ def index():
         now=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         last_run=_last_run_date,
         message=request.args.get("message"),
+        sensor=read_dht20(),
     )
 
 
@@ -468,8 +486,6 @@ def index():
 def save_settings():
     cfg = get_config()
 
-    # Päivitetään vain näkyvien hyllyjen tiedot lomakkeelta;
-    # piilotettujen hyllyjen asetukset säilyvät config.json:ssa muuttumattomina.
     visible = get_visible_shelves(cfg)
     for key in visible:
         time_value = request.form.get(f"time_{key}")
@@ -501,7 +517,6 @@ def manual_trigger(shelf_key):
         return redirect(url_for("index", message="Tuntematon hylly."))
 
     shelf = cfg["shelves"][shelf_key]
-    # Manuaalinen laukaisu sallitaan vain näkyville hyllyille
     if not shelf.get("visible", True):
         return redirect(url_for("index", message="Hylly ei ole näkyvissä hallintasivulla."))
     if not shelf.get("enabled", True):
@@ -523,8 +538,6 @@ def log_clear():
 
 
 def _do_restart():
-    """Ajaa systemctl restart pienellä viiveellä taustasäikeessä,
-    jotta Flask ehtii lähettää välisivun selaimelle ennen katkoa."""
     time.sleep(2)
     log_event("Palvelun uudelleenkäynnistys käynnistyy.")
     try:
@@ -549,20 +562,9 @@ def _do_restart():
 
 @app.route("/restart", methods=["POST"])
 def restart_service():
-    """Käynnistää heina-automaatti.service -palvelun uudelleen systemd:n kautta.
-
-    Edellyttää, että /etc/sudoers.d/heina-automaatti sisältää rivin:
-      pi ALL=(ALL) NOPASSWD: /bin/systemctl restart heina-automaatti.service
-    """
     log_event("Palvelun uudelleenkäynnistys pyydetty web-käyttöliittymästä.")
-
-    # Käynnistä restart taustasäikeessä — näin Flask ehtii palauttaa
-    # välisivun selaimelle ennen kuin prosessi katkeaa.
     t = threading.Thread(target=_do_restart, daemon=True)
     t.start()
-
-    # Välisivu: JavaScript yrittää toistuvasti ladata etusivua kunnes palvelu
-    # on taas ylhäällä. meta refresh varmuuden vuoksi.
     return """
 <!DOCTYPE html>
 <html lang="fi">
@@ -583,7 +585,6 @@ def restart_service():
   <p>Sinut ohjataan etusivulle automaattisesti kun palvelu on taas ylhäällä.</p>
   <p><a href="/">Siirry etusivulle</a></p>
   <script>
-    // Yritetään etusivua 2 sekunnin välein; siirrytään sinne kun se vastaa.
     var attempts = 0;
     var timer = setInterval(function() {
       attempts++;
@@ -591,8 +592,8 @@ def restart_service():
         .then(function(r) {
           if (r.ok) { clearInterval(timer); window.location.href = "/"; }
         })
-        .catch(function() { /* palvelu ei vielä ylhäällä, odotetaan */ });
-      if (attempts > 30) clearInterval(timer); // luovutetaan 60s jälkeen
+        .catch(function() {});
+      if (attempts > 30) clearInterval(timer);
     }, 2000);
   </script>
 </body>
@@ -610,7 +611,11 @@ def main():
     _config = load_config()
     log_event("Heinäautomaatti käynnistyy.")
 
-    # Logataan käynnistyksen yhteydessä hyllyjen tila
+    if DHT20_AVAILABLE:
+        log_event("DHT20-anturi havaittu ja käytössä.")
+    else:
+        log_event("DHT20-anturi ei ole käytössä (ei kirjastoa tai anturi ei vastaa).")
+
     for key, shelf in _config["shelves"].items():
         status = "näkyvissä" if shelf.get("visible", True) else "piilotettu"
         aktiivinen = "käytössä" if shelf.get("enabled", True) else "ei käytössä"

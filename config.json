@@ -2,15 +2,15 @@
   "shelves": {
     "shelf1": {
       "name": "Alahylly",
-      "pin": 2,
-      "time": "07:00",
+      "pin": 20,
+      "time": "23:00",
       "enabled": true,
       "visible": true
     },
     "shelf2": {
       "name": "Ylähylly",
-      "pin": 3,
-      "time": "19:00",
+      "pin": 21,
+      "time": "05:00",
       "enabled": true,
       "visible": true
     },
@@ -57,7 +57,7 @@
       "visible": true
     }
   },
-  "buzzer_pin": 17,
+  "buzzer_pin": 26,
   "relay_active_seconds": 2,
   "buzzer_lead_seconds": 10,
   "beep_on_seconds": 1,
