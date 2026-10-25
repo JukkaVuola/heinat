@@ -181,7 +181,7 @@ Sähkölukot kytketään releen kautta 12V akusta. Muista sulakesuojaus!
 (Sähkölukoissa yleisesti punainen on + ja musta - )
 [Lue lisää kaappien johdotuksesta](kaapit.md)
 
-
+---
 ### Piezo-summeri
 
 Käytä **aktiivista** piezo-summeria. Aktiivisessa summerissa on sisäinen oskillaattori
@@ -239,7 +239,6 @@ Omassani BC237B on tällainen:
 | Punainen johto | RPI 5V | 4 |
 
 
-(Myös kytkentöjen fyysistä kokonaiskuvaa päivitetty tältä osin.)
 ---
 
 ## Toimintaperiaate
