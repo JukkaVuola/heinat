@@ -403,7 +403,7 @@ Toimii aina, myös tallissa ilman verkkoinfrastruktuuria.
 ```bash
 sudo nmtui
 ```
-Valitse valikosta: Edit connection --> Wired connection --> IPv4 configuration --> muuta <Automatic> -> <Manual> --> Show --> Addresses Add --> 192.168.50.1/24 --> 
+Valitse valikosta: Edit connection --> Wired connection --> IPv4 configuration --> Automatic (vaihda tilalle Manual) --> Show --> Addresses Add --> 192.168.50.1/24 --> 
 Lopuksi matkusta nuolilla aivan alas oikeaan alakulmaan ja valitse OK.
 Sitten Back ja lopuksi Quit.
 
