@@ -471,7 +471,7 @@ Lisää rivi:
 ```
 <wifissä saatu ip-osoite>    heinat.wifi
 ```
-Tämän jälkeen pääset langattomasti osoitteella `http://heinat.local:8080/`
+Tämän jälkeen pääset langattomasti osoitteella `http://heinat.wifi:8080/`
 Tiedostoon lisätty nimi on kuitenkin konekohtainen. 
 Jos otat yhteyttä puhelimella tai tabletilla, joudut käyttämään IP-osoitetta (joka myös saattaa RPi:ssä vaihtua, jos käytössä on automaattinen haku dhcp:llä)
 
