@@ -385,42 +385,52 @@ Jälkimmäinen komento tarkistaa, tulosteen pitäisi näyttää rivi `/etc/sudoe
 
 ## Yhteys Raspberry Pi:hin
 
-### Vaihtoehto A: Ethernet-kaapeli suoraan (suositeltu)
+Tässä kiinteä kaapeliyhteys toimii, vaikka muuta verkkoinfrastruktuuria ei olisikaan, RPi toimii itse osoitteiden jakelijana ja sillä on oma kiinteä IP-osoite (ei oletusreititintä eikä muitakaan tietoja). Edellyttää, että asennat myös jäljempänä esitetyn dnsmasq palvelun ja määrittelet sinne jaettavat osoitteet (kohta "Asenna dhcp palvelin).
+
+Tämän lisäksi RPi voi käyttää myös wlan-verkkoa, kunhan verkko on eri mitä kaapeliyhteyteen on määritelty. Tämä yhteys voi samaan aikaan olla sellainen, että RPi pääsee siitä internetiin hakemaan päivityksiä ja päivittämään aikansa ym. 
+
+Heinäautomaatin hallinta löytyy molemmista verkoista niillä osoitteilla, jotka on kiinteästi määritelty (eth) tai saatu automaattisesti verkosta (wifi).
+
+### Vaihtoehto A: Ethernet-kaapeli suoraan
 
 Tämä tapa ei vaadi WiFiä, tukiasemia eikä internet-yhteyttä.
 Toimii aina, myös tallissa ilman verkkoinfrastruktuuria.
 
 ** Aseta Raspberry Pi:lle kiinteä IP-osoite: **
 
-*Tapa 1.*
-
-```bash
-sudo nano /etc/dhcpcd.conf
-```
-
-Lisää tiedoston loppuun:
-
-```
-interface eth0
-static ip_address=192.168.50.1/24
-```
-tai
-
-*Tapa 2.*
-
-Helpompi tapa säätää IP-osoitteita ja esim. Wlan verkon asetuksia saattaa valikkopohjainen työkalu **nmtui*' (Text User Interface for controlling Network Manager):
+*Ethernet-liityntä*
 
 ```bash
 sudo nmtui
 ```
-... liiku valikoissa tabulaattorilla ja nuolilla, muista tallentaa ennen poistumista.
+Valitse valikosta: Edit connection --> Wired connection --> IPv4 configuration --> muuta <Automatic> -> <Manual> --> Show --> Addresses Add --> 192.168.50.1/24 --> 
+Lopuksi matkusta nuolilla aivan alas oikeaan alakulmaan ja valitse OK.
+Sitten Back ja lopuksi Quit.
+
+Lopuksi käynnistä networkmanager uudelleen:
+```bash
+sudo systemctl restart NetworkManager.service
+```
+
+### Vaihtoehto B: Olemassa oleva wlan-verkko
+*Wifi-yhteys*
+
+```bash
+sudo nmtui
+```
+Edit a connection --> Wi-fi connection (tai jos ei ole näkyvissä, valitse Add) --> Edit --> SSID (verkkosi nimi tähän) --> Security (verkkosi salaustapa tähän) --> Password (verkkosi salasana tähän, huom. isot ja pienet eri merkkejä) --> (matkusta nuolilla aivan alas oikeaan alakulmaan) OK --> Back --> Quit.
+
+Lopuksi käynnistä networkmanager uudelleen:
+```bash
+sudo systemctl restart NetworkManager.service
+```
 
 Tarkista lopuksi 
 ```bash
 ip addr
 ```
 
-**Asenna DHCP-palvelin:**
+### Asenna DHCP-palvelin
 
 ```bash
 sudo apt install dnsmasq -y
