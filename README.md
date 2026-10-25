@@ -395,6 +395,7 @@ Heinäautomaatin hallinta löytyy molemmista verkoista niillä osoitteilla, jotk
 
 Tämä tapa ei vaadi WiFiä, tukiasemia eikä internet-yhteyttä.
 Toimii aina, myös tallissa ilman verkkoinfrastruktuuria.
+Tämä kannattaa määritellä, vaikka käyttäisit tallissa myös langatonta verkkoa. Tämä toimii myös varayhteytenä, jos et muuten pääse kiinni Raspberryyn.
 
 ** Aseta Raspberry Pi:lle kiinteä IP-osoite: **
 
@@ -468,12 +469,23 @@ HUOMAA, että et voi käyttää täsmälleen samaa nimeä kahdessa eri osoittees
 - Linux/macOS: `/etc/hosts`
 
 Lisää rivi:
-```
+```bash
 <wifissä saatu ip-osoite>    heinat.wifi
 ```
 Tämän jälkeen pääset langattomasti osoitteella `http://heinat.wifi:8080/`
 Tiedostoon lisätty nimi on kuitenkin konekohtainen. 
-Jos otat yhteyttä puhelimella tai tabletilla, joudut käyttämään IP-osoitetta (joka myös saattaa RPi:ssä vaihtua, jos käytössä on automaattinen haku dhcp:llä)
+Jos otat yhteyttä puhelimella tai tabletilla, joudut käyttämään IP-osoitetta (joka myös saattaa RPi:ssä vaihtua, jos käytössä on automaattinen haku dhcp:llä).
+
+Voit hyvin laittaa myös langattomaan verkkoon manuaalisen osoitteen langattoman verkon osoitealueelta, kunhan et käytä niitä osoitteita, joita reitittimesi jakaa automaattisesti. Käsin määritelty osoite pitää olla olla samassa aliverkossa, mitä langaton verkkosi käyttää (eikä saa olla päällekkäinen minkään muun osoitteen kanssa). Verkkoasetukset on parasta katsoa reitittimestäsi.
+
+Useissa reitittimissä voit myös määritellä, että RPi saa aina saman IP-osoitteen oman MAC-osoitteensa perusteella. Wifi verkkokortin MAC-osoitteen näet Raspberryssä komennolla
+
+```bash
+ip addr
+```
+Osoite on tyyppiä 'link/ether b8:27:eb:aa:bb:cc'
+
+
 
 ---
 
