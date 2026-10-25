@@ -429,6 +429,7 @@ Tarkista lopuksi
 ```bash
 ip addr
 ```
+--- 
 
 ### Asenna DHCP-palvelin
 
@@ -442,6 +443,7 @@ Kirjoita:
 ```
 interface=eth0
 dhcp-range=192.168.50.10,192.168.50.50,24h
+address=/heinat.local/192.168.50.1
 ```
 
 Käynnistä palvelu:
@@ -452,29 +454,26 @@ sudo systemctl restart dnsmasq
 sudo reboot
 ```
 
-**Yhdistä tietokone:** Kytke ethernet-kaapeli. Tietokone saa IP-osoitteen automaattisesti.
+**Yhdistä tietokone:** Kytke ethernet-kaapeli. Tietokone saa IP-osoitteen automaattisesti Raspberryltä.
 
 Avaa selain ja mene osoitteeseen:
 ```
-http://192.168.50.1:8080/
+http://192.168.50.1:8080/ (tai nimellä heinat.local:8080)
 ```
-
-**Valinnainen: lisää helpompi osoite** muokkaamalla tietokoneesi `hosts`-tiedostoa:
+--- 
+**Valinnainen: lisää myös wifi-yhteydelle helpompi osoite** muokkaamalla tietokoneesi `hosts`-tiedostoa:
+HUOMAA, että et voi käyttää täsmälleen samaa nimeä kahdessa eri osoitteessa. Käytä wifissä esim. nimeä 'heinat.wifi'
 
 - Windows: `C:\Windows\System32\drivers\etc\hosts`
 - Linux/macOS: `/etc/hosts`
 
 Lisää rivi:
 ```
-192.168.50.1    heinat.local
+<wifissä saatu ip-osoite>    heinat.wifi
 ```
-
-Tämän jälkeen pääset osoitteella `http://heinat.local:8080/`
-
-### Vaihtoehto B: WiFi-verkko
-
-Jos tallissa on WiFi-verkko, Raspberry Pi löytyy sen kautta normaalisti.
-Tarkista Raspberry Pi:n IP-osoite reitittimestä tai komennolla `ip addr`.
+Tämän jälkeen pääset langattomasti osoitteella `http://heinat.local:8080/`
+Tiedostoon lisätty nimi on kuitenkin konekohtainen. 
+Jos otat yhteyttä puhelimella tai tabletilla, joudut käyttämään IP-osoitetta (joka myös saattaa RPi:ssä vaihtua, jos käytössä on automaattinen haku dhcp:llä)
 
 ---
 
