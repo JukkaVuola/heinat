@@ -483,7 +483,7 @@ Useissa reitittimissä voit myös määritellä, että RPi saa aina saman IP-oso
 ```bash
 ip addr
 ```
-Osoite on tyyppiä 'link/ether b8:27:eb:aa:bb:cc'
+Osoite on tyyppiä **wlan0** 'link/ether b8:27:eb:aa:bb:cc'
 
 
 
