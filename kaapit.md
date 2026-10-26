@@ -23,8 +23,8 @@ Kaapit ovat 2 hyllyn kulmakaappeja
 - korkeus 100 cm
 - takaseinien pituus n. voisi olla 57 - 60 cm
 - takakulman tueksi 50 mm x 50 mm kolmiorimaa n. 50 cm korkea pätkä yläosaan
-  (alas asti ei voi laittaa, ettei tule putoavan hyllyn tielle.
-- alareunaan naulauskulma sisäpuolelle tueksi
+  (alas asti ei voi laittaa, ettei tule putoavan hyllyn tielle).
+- takakulman alareunaan naulauskulma sisäpuolelle tueksi
 - kaapin ovireunat 50 mm x 50 mm neliörimaa ("kakkos kakkosta") ja siihen liimattuna em. kolmiorimaa, pituus 99 cm (koska kolmion muotoinen katto upotetaan hieman).
 - kaappien hyllyt piirsin suoraan vaneriin sitten, kun runko oli valmis. Käytin runkoa piirtomuottina.
 
