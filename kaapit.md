@@ -80,18 +80,21 @@ Itse käyttämiäni hankintapaikkoja:
 
 | Komponentti | linkki |
 |---|---|
-| Alumiinilatta 40 mm | [Puuilon Warma-lattalista 40 mm] (https://www.puuilo.fi/warma-lattalista-alumiini-3x40mm-2m) |
-| Alumiinilatta 25 mm | [Puuilon Warma-lattalista 25 mm] (https://www.puuilo.fi/warma-lattalista-alumiini-3x25mm-2m) |
-| Kattopelti oviin | [Hammeri.fi kattopeltiä] (https://www.hammer.fi/s/search/?keywords=kattopelti) |
-| Puuosat | [Stark-Suomi noutopihalta] (https://www.stark-suomi.fi/) |
-| RST neliöputkea kaiteisiin | (https://mustajarvi.fi/tuote/30x30x2-rst-nelioputki/) | 
+| Alumiinilatta 40 mm | Puuilon Warma-lattalista 40 mm, https://www.puuilo.fi/warma-lattalista-alumiini-3x40mm-2m |
+| Alumiinilatta 25 mm | Puuilon Warma-lattalista 25 mm, https://www.puuilo.fi/warma-lattalista-alumiini-3x25mm-2m |
+| Kattopelti oviin | Hammer.fi, https://www.hammer.fi/s/search/?keywords=kattopelti |
+| Kattopeltiä oviin |biltema.fi, https://www.biltema.fi/rakentaminen/kattotuotteet/kattopellit/kattopelti-1050-x-2500-mm-2000061823 |
+| Puuosat | Stark-Suomi noutopihalta https://www.stark-suomi.fi/ |
+| RST neliöputkea kaiteisiin | https://mustajarvi.fi/tuote/30x30x2-rst-nelioputki/ | 
+
+Itse käytin Hammer.fi myymää kattopeltiä, mutta näköjään myös Biltema.fi myy sitä. 
 
 Esim. 3-hyllyisten kaappien johdotukseen käy hyvin 4-johtiminen peräkärrykaapeli. Tätä käytin itse kahden hyllyn tapauksessa, jolloin yksi johdin jäi käyttämättä:
 
 | Komponentti | linkki |
 |---|---|
-| 3-hyllyisen kaapin johdotus | (https://www.puuilo.fi/perakarrykaapeli-flryy-4x0-75mm-1m) |
-| Kytkekentärasioita | (https://www.puuilo.fi/catalogsearch/result/?q=kytkent%C3%A4rasia) |
+| 3-hyllyisen kaapin johdotus | https://www.puuilo.fi/perakarrykaapeli-flryy-4x0-75mm-1m |
+| Kytkekentärasioita | https://www.puuilo.fi/catalogsearch/result/?q=kytkent%C3%A4rasia |
 | Rasioihin Wagon vipuliittimiä | https://www.puuilo.fi/catalogsearch/result/?q=wago |
 | Johtokiinnikkeitä | https://www.puuilo.fi/catalogsearch/result/?q=johtokiinnike |
 
